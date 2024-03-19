@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:36:04 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 13:23:39 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:23:12 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ t_elem	**
 	t_elem	**stack;
 	int		i;
 
-	stack = NULL;
+	stack = (t_elem **)malloc(sizeof(t_elem *));
+	*stack = ft_stacknew(ft_atoi(argv[1]));
 	i = argc;
 	while (i-- > 0)
 	{
@@ -46,4 +47,5 @@ int
 	stack_a = ft_create_elements(argc, argv);
 	if (stack_a == NULL)
 		return (EXIT_FAILURE);
+	ft_free_stack(stack_a);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:15:48 by simon             #+#    #+#             */
-/*   Updated: 2024/03/19 13:16:24 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:24:56 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,17 @@ int	ft_stacksize(t_elem *stack)
 		stack = stack->next;
 	}
 	return (count);
+}
+
+void	ft_free_stack(t_elem **stack)
+{
+	t_elem	*temp;
+
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
+	}
+	free(stack);
 }

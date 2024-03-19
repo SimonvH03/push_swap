@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 13:19:53 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 14:24:41 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ void		ft_stackadd_front(t_elem **stack, t_elem *new);
 t_elem		*ft_stacklast(t_elem *stack);
 t_elem		*ft_stacknew(int v);
 int			ft_stacksize(t_elem *stack);
+void		ft_free_stack(t_elem **stack);
 
 #endif
