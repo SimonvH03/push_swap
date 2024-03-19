@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:28:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 22:11:00 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:25:06 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void
 	int		i;
 	t_element	*temp;
 
-	i = ft_stacksize(*stack);
+	i = 0;
 	temp = *stack;
-	while (temp != NULL)
+	while (temp)
 	{
-		ft_printf("[%d] %-10d\n", i, temp->v);
+		printf("[%d] %-10d\n", i, temp->v);
 		temp = temp->next;
-		i--;
+		i++;
 	}
 }
 
@@ -43,6 +43,7 @@ void
 	i = 0;
 	temp_a = *a;
 	temp_b = *b;
+	printf("\e[30m[stack] A          B\e[0m\n");
 	while (temp_a || temp_b)
 	{
 		printf("[%d]\t", i);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 22:15:35 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:10:32 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define THEANSWER 42
 
 # ifndef MAXITERATIONS
-#  define MAXITERATIONS 10
+#  define MAXITERATIONS 15
 # endif
 
 typedef struct s_element
@@ -31,10 +31,14 @@ typedef struct s_element
 }	t_element;
 
 // init
-t_element	*ft_create_stack_a(int argc, char **argv);
+int			ft_init_stacks(t_element ***stack_a, t_element ***stack_b, char **argv);
 
 // main
-int			ft_sort_that_mf(t_element **stack_a, t_element **stack_b);
+int			ft_sort_that_mf(t_element **stack_a, t_element **stack_b, int n);
+
+// sort moves
+int			ft_init_sort(t_element **stack_a, t_element **stack_b, int n);
+void		ft_sort_three(t_element **stack);
 
 /// OPERATIONS
 // operations_s_p.c

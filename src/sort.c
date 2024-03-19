@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 22:15:52 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/19 23:24:33 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,23 +40,19 @@ int
 int
 	ft_sort_that_mf(
 		t_element **a,
-		t_element **b
+		t_element **b,
+		int n
 	)
 {
 	int			cap;
 
 	cap = 0;
 	ft_printf("\e[33mSorting...\e[0m\n");
-	pb(a, b);
-	pb(a, b);
+	if (ft_init_sort(a, b, n) == EXIT_SUCCESS)
+		return (EXIT_SUCCESS);
 	while (ft_sorted(a, b) == EXIT_FAILURE && cap < MAXITERATIONS)
 	{
-		sa(a);
-		ra(a);
-		pb(a, b);
 		ft_print_both_stacks(a, b);
-		sb(b);
-		pa(a, b);
 		cap++;
 	}
 	if (cap == MAXITERATIONS)

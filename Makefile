@@ -7,13 +7,14 @@ LIBFT		=	$(LFTDIR)/libft.a
 HEADERS		=	-I ./include/.
 LIBS		=	$(LIBFT)
 SRCDIR		=	./src
-SRC			=	$(SRCDIR)/create_elements.c \
+SRC			=	$(SRCDIR)/init_stacks.c \
 				$(SRCDIR)/list_utils.c \
 				$(SRCDIR)/operations_r.c \
 				$(SRCDIR)/operations_rr.c \
 				$(SRCDIR)/operations_s_p.c \
 				$(SRCDIR)/operations.c \
 				$(SRCDIR)/push_swap.c \
+				$(SRCDIR)/sort_moves.c \
 				$(SRCDIR)/sort.c \
 				$(SRCDIR)/test_utils.c \
 				$(SRCDIR)/utils.c \
