@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   operations_r.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/18 19:14:23 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:41:31 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void
 	ra(
 		t_elem **a
 	)
 {
-	write(stdout, "ra\n", 2);
-	rotate(a);
+	write(1, "ra\n", 2);
+	ft_rotate(a);
 }
 
 void
@@ -26,8 +26,8 @@ void
 		t_elem **b
 	)
 {
-	write(stdout, "rb\n", 2);
-	rotate(b);
+	write(1, "rb\n", 2);
+	ft_rotate(b);
 }
 
 void
@@ -36,7 +36,7 @@ void
 		t_elem **b
 	)
 {
-	write(stdout, "rr\n", 2);
-	rotate(a);
-	rotate(b);
+	write(1, "rr\n", 2);
+	ft_rotate(a);
+	ft_rotate(b);
 }

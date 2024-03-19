@@ -6,17 +6,17 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:02:02 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/18 22:56:02 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:40:25 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 // **stack = head
 // *stack = first
 
 void
-	swap(
+	ft_swap(
 		t_elem **stack
 	)
 {
@@ -31,7 +31,7 @@ void
 }
 
 void
-	push(
+	ft_push(
 		t_elem **dest,
 		t_elem **src
 	)
@@ -47,7 +47,7 @@ void
 }
 
 void
-	rotate(
+	ft_rotate(
 		t_elem **stack
 	)
 {
@@ -64,7 +64,7 @@ void
 }
 
 void
-	reverse_rotate(
+	ft_reverse_rotate(
 		t_elem **stack
 	)
 {

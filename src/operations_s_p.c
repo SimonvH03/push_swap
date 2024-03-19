@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   operations_s_p.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/18 19:18:40 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:41:59 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void
 	sa(
 		t_elem **a
 	)
 {
-	write(stdout, "sa\n", 2);
-	swap(a);
+	write(1, "sa\n", 2);
+	ft_swap(a);
 }
 
 void
@@ -26,8 +26,8 @@ void
 		t_elem **b
 	)
 {
-	write(stdout, "sb\n", 2);
-	swap(b);
+	write(1, "sb\n", 2);
+	ft_swap(b);
 }
 
 void
@@ -36,9 +36,9 @@ void
 		t_elem **b
 	)
 {
-	write(stdout, "ss\n", 2);
-	swap(a);
-	swap(b);
+	write(1, "ss\n", 2);
+	ft_swap(a);
+	ft_swap(b);
 }
 
 void
@@ -47,8 +47,8 @@ void
 		t_elem **b
 	)
 {
-	write(stdout, "pa\n", 2);
-	push(a, b);
+	write(1, "pa\n", 2);
+	ft_push(a, b);
 }
 
 void
@@ -57,6 +57,6 @@ void
 		t_elem **b
 	)
 {
-	write(stdout, "pb\n", 2);
-	push(b, a);
+	write(1, "pb\n", 2);
+	ft_push(b, a);
 }

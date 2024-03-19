@@ -6,12 +6,13 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/18 23:11:03 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 13:19:53 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "libft.h"
 # include "stdio.h"
 # include "stdlib.h"
 
@@ -19,8 +20,8 @@
 
 typedef struct s_elem
 {
-	int		v;
-	t_elem	*next;
+	int				v;
+	struct s_elem	*next;
 }	t_elem;
 
 /// OPERATIONS
@@ -42,8 +43,16 @@ void		rra(t_elem **a);
 void		rrb(t_elem **b);
 void		rrr(t_elem **a, t_elem **b);
 
-// Utils
-void		swap(t_elem **stack);
-void		push(t_elem **dest, t_elem **src);
+// operation logic
+void		ft_swap(t_elem **stack);
+void		ft_push(t_elem **dest, t_elem **src);
+void		ft_rotate(t_elem **stack);
+void		ft_reverse_rotate(t_elem **stack);
+
+// list utils
+void		ft_stackadd_front(t_elem **stack, t_elem *new);
+t_elem		*ft_stacklast(t_elem *stack);
+t_elem		*ft_stacknew(int v);
+int			ft_stacksize(t_elem *stack);
 
 #endif

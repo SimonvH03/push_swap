@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap_ints.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/13 19:47:44 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/13 19:49:35 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:41 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 void	ft_swap_ints(int *a, int *b)
 {

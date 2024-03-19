@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_intlen_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:58:59 by svan-hoo          #+#    #+#             */
-/*   Updated: 2023/11/22 18:54:49 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:31:40 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../include/libft.h"
 
 int	ft_intlen_base(int n, char *base)
 {
