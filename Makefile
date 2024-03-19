@@ -9,11 +9,14 @@ LIBS		=	$(LIBFT)
 SRCDIR		=	./src
 SRC			=	$(SRCDIR)/create_elements.c \
 				$(SRCDIR)/list_utils.c \
-				$(SRCDIR)/operations_utils.c \
 				$(SRCDIR)/operations_r.c \
 				$(SRCDIR)/operations_rr.c \
 				$(SRCDIR)/operations_s_p.c \
+				$(SRCDIR)/operations.c \
 				$(SRCDIR)/push_swap.c \
+				$(SRCDIR)/sort.c \
+				$(SRCDIR)/test_utils.c \
+				$(SRCDIR)/utils.c \
 
 OBJS		=	${SRC:.c=.o}
 
@@ -25,13 +28,15 @@ $(LIBFT):
 %.o: %.c
 	$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
 
-$(NAME): $(OBJS) $(LIBS)
+$(NAME): $(LIBS) $(OBJS)
 	$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 
 clean:
 	rm -rf $(OBJS)
+	make -C $(LFTDIR) clean
 
-fclean: clean
+fclean:
+	rm -rf $(OBJS)
 	rm -rf $(NAME)
 	make -C $(LFTDIR) fclean
 

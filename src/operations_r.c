@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_r.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 13:41:31 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 22:06:42 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 void
 	ra(
-		t_elem **a
+		t_element **a
 	)
 {
-	write(1, "ra\n", 2);
+	ft_printf("ra\n");
 	ft_rotate(a);
 }
 
 void
 	rb(
-		t_elem **b
+		t_element **b
 	)
 {
-	write(1, "rb\n", 2);
+	ft_printf("rb\n");
 	ft_rotate(b);
 }
 
 void
 	rr(
-		t_elem **a,
-		t_elem **b
+		t_element **a,
+		t_element **b
 	)
 {
-	write(1, "rr\n", 2);
+	ft_printf("rr\n");
 	ft_rotate(a);
 	ft_rotate(b);
 }

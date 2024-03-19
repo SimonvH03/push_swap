@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operations_s_p.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 13:41:59 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 22:07:21 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,49 @@
 
 void
 	sa(
-		t_elem **a
+		t_element **a
 	)
 {
-	write(1, "sa\n", 2);
+	ft_printf("sa\n");
 	ft_swap(a);
 }
 
 void
 	sb(
-		t_elem **b
+		t_element **b
 	)
 {
-	write(1, "sb\n", 2);
+	ft_printf("sb\n");
 	ft_swap(b);
 }
 
 void
 	ss(
-		t_elem **a,
-		t_elem **b
+		t_element **a,
+		t_element **b
 	)
 {
-	write(1, "ss\n", 2);
+	ft_printf("ss\n");
 	ft_swap(a);
 	ft_swap(b);
 }
 
 void
 	pa(
-		t_elem **a,
-		t_elem **b
+		t_element **a,
+		t_element **b
 	)
 {
-	write(1, "pa\n", 2);
+	ft_printf("pa\n");
 	ft_push(a, b);
 }
 
 void
 	pb(
-		t_elem **a,
-		t_elem **b
+		t_element **a,
+		t_element **b
 	)
 {
-	write(1, "pb\n", 2);
+	ft_printf("pb\n");
 	ft_push(b, a);
 }

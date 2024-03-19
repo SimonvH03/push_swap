@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_utils.c                                 :+:      :+:    :+:   */
+/*   operations.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:02:02 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 14:10:44 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/19 20:21:27 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void
 	ft_swap(
-		t_elem **stack
+		t_element **stack
 	)
 {
-	t_elem	*temp;
+	t_element	*temp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (ft_stacksize(*stack) < 2)
 		return ;
 	temp = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
@@ -29,13 +29,13 @@ void
 
 void
 	ft_push(
-		t_elem **dest,
-		t_elem **src
+		t_element **dest,
+		t_element **src
 	)
 {
-	t_elem	*temp;
+	t_element	*temp;
 
-	if (dest == NULL || src == NULL || *src == NULL)
+	if (ft_stacksize(*src) < 1)
 		return ;
 	temp = *src;
 	*src = (*src)->next;
@@ -45,34 +45,34 @@ void
 
 void
 	ft_rotate(
-		t_elem **stack
+		t_element **stack
 	)
 {
-	t_elem	*last;
+	t_element	*temp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (ft_stacksize(*stack) < 2)
 		return ;
-	last = *stack;
-	while (last->next->next != NULL)
-		last = last->next;
-	last->next = *stack;
+	temp = *stack;
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = *stack;
 	*stack = (*stack)->next;
-	(*stack)->next = NULL;
+	temp->next->next = NULL;
 }
 
 void
 	ft_reverse_rotate(
-		t_elem **stack
+		t_element **stack
 	)
 {
-	t_elem	*temp;
+	t_element	*temp;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (ft_stacksize(*stack) < 2)
 		return ;
 	temp = *stack;
 	while (temp->next->next != NULL)
 		temp = temp->next;
-	temp->next->next = (*stack)->next;
+	temp->next->next = *stack;
 	*stack = temp->next;
 	temp->next = NULL;
 }

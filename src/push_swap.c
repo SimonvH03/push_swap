@@ -6,46 +6,49 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:36:04 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 14:23:12 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/19 22:07:50 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_elem	**
-	ft_create_elements(
-		int argc,
-		char	**argv
+int
+	ft_error(
 	)
 {
-	t_elem	**stack;
-	int		i;
-
-	stack = (t_elem **)malloc(sizeof(t_elem *));
-	*stack = ft_stacknew(ft_atoi(argv[1]));
-	i = argc;
-	while (i-- > 0)
-	{
-		printf("[%d]\t%s\n", i, argv[i]);
-		ft_stackadd_front(stack, ft_stacknew(ft_atoi(argv[i])));
-	}
-	return (stack);
+	ft_printf("Error\n");
+	return (EXIT_FAILURE);
 }
 
 int
 	main(
 		int argc,
-		char **argv)
+		char **argv
+	)
 {
-	t_elem	**stack_a;
-	t_elem	**stack_b;
+	t_element	**stack_a;
+	t_element	**stack_b;
 
 	if (THEANSWER != 42)
 		return (42);
-	if (argc <= 2)
+	if (argc < 2)
 		return (EXIT_FAILURE);
-	stack_a = ft_create_elements(argc, argv);
+	stack_a = (t_element **)malloc(sizeof(t_element *));
 	if (stack_a == NULL)
 		return (EXIT_FAILURE);
-	ft_free_stack(stack_a);
+	*stack_a = ft_create_stack_a(argc, argv);
+	if (stack_a == NULL)
+		return (ft_error());
+	stack_b = (t_element **)malloc(sizeof(t_element *));
+	if (stack_b == NULL)
+		return (EXIT_FAILURE);
+	*stack_b = NULL;
+	ft_printf("initial stack A:\n");
+	ft_print_stack(stack_a);
+	if (ft_sort_that_mf(stack_a, stack_b) == EXIT_FAILURE)
+		return (EXIT_FAILURE);
+	ft_printf("final stacks:\n");
+	ft_print_both_stacks(stack_a, stack_b);
+	ft_free_both_stacks(stack_a, stack_b);
+	return (EXIT_SUCCESS);
 }

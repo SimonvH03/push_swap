@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 20:49:58 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 13:31:41 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/19 18:23:47 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "libft.h"
 
 int	ft_putnbr_base(long n, char *base)
 {
@@ -25,7 +25,6 @@ int	ft_putnbr_base(long n, char *base)
 	}
 	if (n >= size)
 		len += ft_putnbr_base(n / size, base);
-	n = n % size;
-	len += ft_putchar(base[n]);
+	len += ft_putchar(base[n % size]);
 	return (len);
 }
