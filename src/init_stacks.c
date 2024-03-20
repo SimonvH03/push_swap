@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/20 00:26:03 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/20 21:16:31 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 void
-	ft_rank_stack_a(
-		t_element *stack_a
+	ft_rank_elements(
+		t_element *stack
 	)
 {
 	return ;
@@ -27,7 +27,7 @@ t_element	*
 {
 	t_element	*stack;
 	t_element	*new;
-	int		i;
+	int			i;
 
 	stack = ft_stacknew(argv[1]);
 	if (stack == NULL)
@@ -58,7 +58,6 @@ int
 	**stack_a = ft_create_stack_a(argv);
 	if (*stack_a == NULL)
 		return (EXIT_FAILURE);
-	// ft_rank_stack_a(*stack_a);
 	*stack_b = (t_element **)malloc(sizeof(t_element *));
 	if (*stack_b == NULL)
 		return (EXIT_FAILURE);

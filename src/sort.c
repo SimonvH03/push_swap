@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/19 23:24:33 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/20 21:13:13 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int
 	)
 {
 	t_element	*temp;
-	int		pre_v_ous;
+	int			pre_v_ous;
 
 	if (*b)
 		return (EXIT_FAILURE);
@@ -44,20 +44,12 @@ int
 		int n
 	)
 {
-	int			cap;
-
-	cap = 0;
 	ft_printf("\e[33mSorting...\e[0m\n");
+	if (ft_sorted(a, b) == EXIT_SUCCESS)
+		return (EXIT_SUCCESS);
 	if (ft_init_sort(a, b, n) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
-	while (ft_sorted(a, b) == EXIT_FAILURE && cap < MAXITERATIONS)
-	{
-		ft_print_both_stacks(a, b);
-		cap++;
-	}
-	if (cap == MAXITERATIONS)
-		ft_printf("\e[33mCapped\e[0m\n");
-	if (ft_sorted(a, b) == EXIT_SUCCESS)
-		ft_printf("\e[32mSORTED\e[0m\n");
-	return (EXIT_SUCCESS);
+	ft_presort_b(a, b, n);
+	ft_sort_three(a);
+	return (ft_sorted(a, b));
 }

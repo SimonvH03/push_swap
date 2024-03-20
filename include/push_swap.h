@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 16:41:48 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/20 21:46:58 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,25 @@
 
 typedef struct s_element
 {
-	int				v;
+	int					v;
 	struct s_element	*next;
 }	t_element;
 
-// init
-int			ft_init_stacks(t_element ***stack_a, t_element ***stack_b, char **argv);
+// init / parse
+int			ft_init_stacks(t_element ***a, t_element ***b, char **argv);
+//int		ft_check_duplicates
+//void		ft_rank_elements
 
 // main
-int			ft_sort_that_mf(t_element **stack_a, t_element **stack_b, int n);
+int			ft_sort_that_mf(t_element **a, t_element **b, int n);
 
 // sort moves
-int			ft_init_sort(t_element **stack_a, t_element **stack_b, int n);
+int			ft_init_sort(t_element **a, t_element **b, int n);
+int			ft_presort_b(t_element **a, t_element **b, int n);
 void		ft_sort_three(t_element **stack);
+
+// find cheapest insertion
+void		ft_find_cheapest_insertion(t_element **a, t_element **b, int n);
 
 /// OPERATIONS
 // operations_s_p.c

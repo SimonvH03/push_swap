@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:15:48 by simon             #+#    #+#             */
-/*   Updated: 2024/03/20 16:41:22 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/20 17:18:11 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_element	*
 	)
 {
 	if (f == NULL)
-		return ;
+		return (NULL);
 	while (stack != NULL)
 	{
 		if (f(stack) == EXIT_SUCCESS)

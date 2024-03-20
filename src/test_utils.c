@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   test_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:28:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 00:25:06 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/20 21:21:29 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@ void
 		t_element **stack
 	)
 {
-	int		i;
+	int			i;
 	t_element	*temp;
 
-	i = 0;
+	i = 1;
 	temp = *stack;
 	while (temp)
 	{
-		printf("[%d] %-10d\n", i, temp->v);
+		printf("[%d] %-10d\n", i++, temp->v);
 		temp = temp->next;
-		i++;
 	}
 }
 
@@ -36,17 +35,17 @@ void
 		t_element **b
 	)
 {
-	int		i;
+	int			i;
 	t_element	*temp_a;
 	t_element	*temp_b;
 
-	i = 0;
+	i = 1;
 	temp_a = *a;
 	temp_b = *b;
-	printf("\e[30m[stack] A          B\e[0m\n");
+	printf("\e[30m[top]  [A]        [B]\e[0m\n");
 	while (temp_a || temp_b)
 	{
-		printf("[%d]\t", i);
+		printf("[%d]\t", i++);
 		if (temp_a)
 		{
 			printf("%-10d", temp_a->v);
@@ -60,6 +59,5 @@ void
 			temp_b = temp_b->next;
 		}
 		printf("\n");
-		i++;
 	}
 }
