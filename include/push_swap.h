@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 00:10:32 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/20 16:41:48 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ void		ft_rotate(t_element **stack);
 void		ft_reverse_rotate(t_element **stack);
 
 // list utils
+t_element	*ft_stack_iteration(t_element *stack, int (*f)(t_element *));
 void		ft_stackadd_front(t_element **stack, t_element *new);
 t_element	*ft_stacklast(t_element *stack);
 t_element	*ft_stacknew(const char *arg);
