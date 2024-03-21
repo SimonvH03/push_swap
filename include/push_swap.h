@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 21:46:58 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/20 23:47:15 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,9 @@ t_element	*ft_stacklast(t_element *stack);
 t_element	*ft_stacknew(const char *arg);
 int			ft_stacksize(t_element *stack);
 void		ft_free_both_stacks(t_element **a, t_element **b);
+
+// sort utils
+t_element	*ft_extreme_element(t_element **stack, short sign);
 
 // utils
 int			ft_maxint_check(const char *str);

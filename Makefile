@@ -16,6 +16,7 @@ SRC			=	$(SRCDIR)/find_cheapest_insertion.c \
 				$(SRCDIR)/operations.c \
 				$(SRCDIR)/push_swap.c \
 				$(SRCDIR)/sort_moves.c \
+				$(SRCDIR)/sort_utils.c \
 				$(SRCDIR)/sort.c \
 				$(SRCDIR)/test_utils.c \
 				$(SRCDIR)/utils.c \

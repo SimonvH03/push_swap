@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:36:04 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 21:08:51 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/20 23:48:33 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int
 	)
 {
 	t_element	**stack_a;
-	t_element	**stack_b;
 	int			n;
+	t_element	**stack_b;
 
 	if (THEANSWER != 42)
 		return (42);
@@ -43,7 +43,7 @@ int
 		ft_printf("\e[32mSORTED\e[0m\n");
 	else
 		ft_printf("\e[31mNOT SORTED\e[0m\n");
-	ft_printf("final stacks:\n");
+	ft_printf("result:\n");
 	ft_print_both_stacks(stack_a, stack_b);
 	ft_free_both_stacks(stack_a, stack_b);
 	return (EXIT_SUCCESS);

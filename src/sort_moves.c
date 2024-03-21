@@ -3,53 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/20 21:47:16 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/20 23:53:32 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// if order is ascending (1 2 3, 2 3 1, 3 1 2) no swaps are needed
-// if order is descending (2 1 3, 3 2 1, 1 3 2) one swap is needed
-// a rotate or reverse rotate can be used to get the correct position
-// comparing the middle value (2) twice determines a certain permutation
-// the first three cases in this function are ascending, the last descending
-// each group is ordered depending on the position of the middle value (2)
-// for example: 1 3 2 (last case in function)
-// third value is bigger than the first but smaller than the second; it is (2)
-// also, since the second is bigger than the third, the order is descending
-// this means we need to swap, but first put (3) on the bottom of the stack
 void
-	ft_sort_three(
-		t_element **stack
+	ft_sort_four(
+		t_element **a,
+		t_element **b
 	)
 {
-	const int	a__ = (*stack)->v;
-	const int	_b_ = (*stack)->next->v;
-	const int	__c = (*stack)->next->next->v;
+	const t_element	*min = ft_extreme_element(a, -1);
+	const t_element	*max = ft_extreme_element(a, 1);
 
-	if (a__ < _b_ && a__ > __c)
-		rra(stack);
-	if (_b_ < __c && _b_ > a__)
-		return ;
-	if (__c < a__ && __c > _b_)
-		ra(stack);
-	if (a__ < __c && a__ > _b_)
-		sa(stack);
-	if (_b_ < a__ && _b_ > __c)
-	{
-		ra(stack);
-		sa(stack);
-	}
-	if (__c < _b_ && __c > a__)
-	{
-		rra(stack);
-		sa(stack);
-	}
+	while (*a != min && *a != max)
+		ra(a);
+	pb(a, b);
+	ft_print_both_stacks(a, b);
+	ft_sort_three(a);
+	ft_print_both_stacks(a, b);
+	pa(a, b);
+	if (*a == max)
+		ra(a);
 	return ;
+}
+
+void
+	ft_sort_three(
+		t_element **a
+	)
+{
+	const t_element	*maximum = ft_extreme_element(a, 1);
+
+	if (maximum == (*a))
+		ra(a);
+	else if (maximum == (*a)->next)
+		rra(a);
+	if ((*a)->v > (*a)->next->v)
+		sa(a);
 }
 
 int
@@ -67,6 +63,11 @@ int
 	if (n == 3)
 	{
 		ft_sort_three(a);
+		return (EXIT_SUCCESS);
+	}
+	if (n == 4)
+	{
+		ft_sort_four(a, b);
 		return (EXIT_SUCCESS);
 	}
 	pb(a, b);

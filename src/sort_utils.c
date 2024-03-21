@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_r.c                                     :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 23:47:36 by simon            ###   ########.fr       */
+/*   Created: 2024/03/20 23:05:27 by simon             #+#    #+#             */
+/*   Updated: 2024/03/20 23:23:26 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void
-	ra(
-		t_element **a
+t_element	*
+	ft_extreme_element(
+		t_element **stack,
+		short sign
 	)
 {
-	ft_printf("ra\n");
-	ft_rotate(a);
-}
+	t_element	*temp;
+	t_element	*extreme;
 
-void
-	rb(
-		t_element **b
-	)
-{
-	ft_printf("rb\n");
-	ft_rotate(b);
-}
-
-void
-	rr(
-		t_element **a,
-		t_element **b
-	)
-{
-	ft_printf("rr\n");
-	ft_rotate(a);
-	ft_rotate(b);
+	temp = *stack;
+	extreme = temp;
+	while (temp != NULL)
+	{
+		if (temp->v * sign > extreme->v * sign)
+			extreme = temp;
+		temp = temp->next;
+	}
+	return (extreme);
 }

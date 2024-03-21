@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   find_cheapest_insertion.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 22:07:08 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/21 02:41:26 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,16 @@ void
 // find the number in a that can be pushed to b requiring the least operations
 // rx is how many times to rotate stack x before pushing to b
 // negative means reverse rotations
+// per index in stack A see the path to stack B
+// if A + B (- doubles) < index, immediately execute
+// this should be limited to 25% of n up and down stack A
+// potential! (during presort_b) when rotating A to push to B, always evaluate sa(A)!!!
+// probably invert B polarity when swapping A
 void
 	ft_find_cheapest_insertion(
 		t_element **a,
 		t_element **b,
-		int	n
+		int n
 	)
 {
 	int	a_rotations;
