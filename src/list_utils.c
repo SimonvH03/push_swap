@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:15:48 by simon             #+#    #+#             */
-/*   Updated: 2024/03/20 17:18:11 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/21 16:28:11 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,26 +29,20 @@ t_element	*
 	return (NULL);
 }
 
-t_element	*ft_stacknew(const char *arg)
-{
-	t_element	*new;
-
-	new = (t_element *)malloc(sizeof(t_element));
-	if (new == NULL)
-		return (NULL);
-	if (ft_maxint_check(arg) == EXIT_FAILURE)
-		return (NULL);
-	new->v = ft_atoi(arg);
-	new->next = NULL;
-	return (new);
-}
-
 void	ft_stackadd_front(t_element **stack, t_element *new)
 {
 	if (new == NULL)
 		return ;
 	new->next = *stack;
 	*stack = new;
+}
+
+t_element	*ft_stacklast(t_element *stack)
+{
+	if (stack != NULL)
+		while (stack->next != NULL)
+			stack = stack->next;
+	return (stack);
 }
 
 int	ft_stacksize(t_element *stack)
@@ -64,10 +58,22 @@ int	ft_stacksize(t_element *stack)
 	return (count);
 }
 
-t_element	*ft_stacklast(t_element *stack)
+int	ft_indexstack(t_element *haystack, t_element *needle)
 {
-	if (stack != NULL)
-		while (stack->next != NULL)
-			stack = stack->next;
+	int	index;
+
+	index = 0;
+	while (haystack != NULL && haystack != needle)
+	{
+		index++;
+		haystack = haystack->next;
+	}
+	return (index);
+}
+
+t_element	*ft_stackindex(t_element *stack, int index)
+{
+	while (stack != NULL && index--)
+		stack = stack->next;
 	return (stack);
 }

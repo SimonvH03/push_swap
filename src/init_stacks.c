@@ -3,21 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/20 21:16:31 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:56:35 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void
-	ft_rank_elements(
-		t_element *stack
+int
+	ft_maxint_check(
+		const char *str
 	)
 {
-	return ;
+	return (EXIT_SUCCESS);
+}
+
+t_element	*ft_stacknew(const char *arg)
+{
+	t_element	*new;
+
+	new = (t_element *)malloc(sizeof(t_element));
+	if (new == NULL)
+		return (NULL);
+	if (ft_maxint_check(arg) == EXIT_FAILURE)
+		return (NULL);
+	new->v = ft_atoi(arg);
+	new->path = (t_path){0, 0};
+	new->next = NULL;
+	return (new);
 }
 
 t_element	*

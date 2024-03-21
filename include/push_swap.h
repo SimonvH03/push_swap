@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 23:47:15 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/21 16:01:23 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,22 @@
 #  define MAXITERATIONS 15
 # endif
 
+typedef struct s_path
+{
+	int	a_rotations;
+	int	b_rotations;
+}	t_path;
+
 typedef struct s_element
 {
 	int					v;
+	t_path				path;
 	struct s_element	*next;
 }	t_element;
 
 // init / parse
 int			ft_init_stacks(t_element ***a, t_element ***b, char **argv);
 //int		ft_check_duplicates
-//void		ft_rank_elements
 
 // main
 int			ft_sort_that_mf(t_element **a, t_element **b, int n);
@@ -72,18 +78,19 @@ void		ft_rotate(t_element **stack);
 void		ft_reverse_rotate(t_element **stack);
 
 // list utils
-t_element	*ft_stack_iteration(t_element *stack, int (*f)(t_element *));
 void		ft_stackadd_front(t_element **stack, t_element *new);
-t_element	*ft_stacklast(t_element *stack);
 t_element	*ft_stacknew(const char *arg);
+t_element	*ft_stack_iteration(t_element *stack, int (*f)(t_element *));
 int			ft_stacksize(t_element *stack);
-void		ft_free_both_stacks(t_element **a, t_element **b);
+t_element	*ft_stacklast(t_element *stack);
+t_element	*ft_stackindex(t_element *stack, int index);
 
 // sort utils
 t_element	*ft_extreme_element(t_element **stack, short sign);
 
 // utils
 int			ft_maxint_check(const char *str);
+void		ft_free_both_stacks(t_element **a, t_element **b);
 
 // test utils
 void		ft_print_stack(t_element **stack);
