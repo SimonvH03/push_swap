@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/20 23:53:32 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/22 17:56:22 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ int
 	}
 	pb(a, b);
 	pb(a, b);
+	if ((*b)->next->v > (*b)->v)
+		sb(b);
 	return (EXIT_FAILURE);
 }
 
@@ -84,6 +86,7 @@ int
 {
 	int	cap;
 
+	ft_print_both_stacks(a, b);
 	cap = 0;
 	while (ft_stacksize(*a) > 3 && cap++ < MAXITERATIONS)
 	{
