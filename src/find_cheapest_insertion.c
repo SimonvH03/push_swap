@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 18:05:38 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/22 18:33:19 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,14 @@ void
 	pb(a, b);
 }
 
-unsigned int
+int
 	ft_total_path_length(
 		t_path path
 	)
 {
-	unsigned int	total;
+	int	total;
 
-	total = ft_abs(path.a_rotations + path.b_rotations);
+	total = ft_abs(path.a_rotations) + ft_abs(path.b_rotations);
 	return(total);
 }
 
@@ -97,9 +97,11 @@ int
 
 	b_temp = *b;
 	b_index = 0;
-	while (b_temp != NULL && b_temp->v > val && b_temp->next->v < val)
+	while (b_temp != NULL)
 	{
 		b_index++;
+		if (b_temp->v > val && b_temp->next->v < val)
+				break ;
 		b_temp = b_temp->next;
 	}
 	return (ft_min_abs(b_index, b_index - b_size));
@@ -120,12 +122,12 @@ void
 		int n
 	)
 {
-	t_element	*a_temp;
-	int			a_index;
-	const int	a_size = ft_stacksize(*a);
-	int			v;
-	int			v_temp;
-	t_element	*a_optimal;
+	t_element		*a_temp;
+	int				a_index;
+	const int		a_size = ft_stacksize(*a);
+	int	v;
+	int	v_temp;
+	t_element		*a_optimal;
 
 	a_temp = *a;
 	a_index = 0;
@@ -138,17 +140,18 @@ void
 		a_temp = a_temp->next;
 	}
 	a_temp = *a;
+	a_optimal = a_temp;
 	v = ft_total_path_length(a_temp->path);
 	while (a_temp != NULL)
 	{
 		v_temp = ft_total_path_length(a_temp->path);
-		if (v_temp > v)
+		if (v_temp < v)
 		{
 			v = v_temp;
 			a_optimal = a_temp;
 		}
 		a_temp = a_temp->next;
 	}
-	printf("moving: %d\t%d\n", a_optimal->path.a_rotations, a_optimal->path.b_rotations);
-	// ft_move(a, b, a_optimal->path.a_rotations, a_optimal->path.b_rotations);
+	// printf("moving: %d\t%d\n", a_optimal->path.a_rotations, a_optimal->path.b_rotations);
+	ft_move(a, b, a_optimal->path.a_rotations, a_optimal->path.b_rotations);
 }
