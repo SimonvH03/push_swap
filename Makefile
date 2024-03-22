@@ -7,14 +7,14 @@ LIBFT		=	$(LFTDIR)/libft.a
 HEADERS		=	-I ./include/.
 LIBS		=	$(LIBFT)
 SRCDIR		=	./src
-SRC			=	$(SRCDIR)/find_cheapest_insertion.c \
-				$(SRCDIR)/init_stacks.c \
+SRC			=	$(SRCDIR)/init_stacks.c \
 				$(SRCDIR)/list_utils.c \
 				$(SRCDIR)/main.c \
 				$(SRCDIR)/operations_r.c \
 				$(SRCDIR)/operations_rr.c \
 				$(SRCDIR)/operations_s_p.c \
 				$(SRCDIR)/operations.c \
+				$(SRCDIR)/presort_b.c \
 				$(SRCDIR)/sort_moves.c \
 				$(SRCDIR)/sort_utils.c \
 				$(SRCDIR)/sort.c \

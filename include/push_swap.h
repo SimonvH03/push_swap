@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 21:30:29 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/22 23:06:16 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,10 @@ int			ft_sort_that_mf(t_element **a, t_element **b, int n);
 
 // sort moves
 int			ft_init_sort(t_element **a, t_element **b, int n);
-int			ft_presort_b(t_element **a, t_element **b, int n);
 void		ft_sort_three(t_element **stack);
 
-// find cheapest insertion
-void		ft_find_cheapest_insertion(t_element **a, t_element **b, int n);
+// presort b
+void		ft_presort_b(t_element **a, t_element **b, int n);
 int			ft_unload_b(t_element **a, t_element **b, int n);
 void		ft_final_set_a(t_element **a, int n);
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_cheapest_insertion.c                          :+:      :+:    :+:   */
+/*   presort_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 21:29:31 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/22 23:09:47 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,9 @@ int
 // this should be limited to 25% of total size (n) up and down stack A
 // potential! (during presort_b) when rotating A to push to B, always evaluate sa(A)!!!
 // probably invert B polarity when swapping A
+//		 printf("[%d](%d)\t%d\t%d\n", a_index, a_temp->v, a_temp->path.a_rotations, a_temp->path.b_rotations);
 void
-	ft_find_cheapest_insertion(
+	ft_presort_b(
 		t_element **a,
 		t_element **b,
 		int n
@@ -132,7 +133,6 @@ void
 		a_temp->path.a_rotations = ft_min_abs(a_index, a_index - a_size);
 		b_index = ft_find_b_index(b, a_temp->v);
 		a_temp->path.b_rotations = ft_min_abs(b_index, b_index - b_size);
-		// printf("[%d](%d)\t%d\t%d\n", a_index, a_temp->v, a_temp->path.a_rotations, a_temp->path.b_rotations);
 		a_index++;
 		a_temp = a_temp->next;
 	}
