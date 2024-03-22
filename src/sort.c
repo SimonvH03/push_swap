@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/20 21:13:13 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/22 21:40:12 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,14 @@ int
 		int n
 	)
 {
-	ft_printf("\e[33mSorting...\e[0m\n");
+	// ft_printf("\e[33mSorting...\e[0m\n");
 	if (ft_sorted(a, b) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	if (ft_init_sort(a, b, n) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	ft_presort_b(a, b, n);
 	ft_sort_three(a);
+	ft_unload_b(a, b, n);
+	ft_final_set_a(a, n);
 	return (ft_sorted(a, b));
 }

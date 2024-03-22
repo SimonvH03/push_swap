@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:15:48 by simon             #+#    #+#             */
-/*   Updated: 2024/03/21 16:28:11 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/22 21:47:48 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,15 @@ t_element	*
 	return (NULL);
 }
 
+// this is temporarily stackadd_back while investigating an issue
 void	ft_stackadd_front(t_element **stack, t_element *new)
 {
 	if (new == NULL)
 		return ;
-	new->next = *stack;
-	*stack = new;
+	else if (*stack != NULL)
+		ft_stacklast(*stack)->next = new;
+	else
+		*stack = new;
 }
 
 t_element	*ft_stacklast(t_element *stack)
@@ -58,7 +61,7 @@ int	ft_stacksize(t_element *stack)
 	return (count);
 }
 
-int	ft_indexstack(t_element *haystack, t_element *needle)
+int	ft_indexstack(const t_element *haystack, const t_element *needle)
 {
 	int	index;
 

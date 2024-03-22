@@ -6,29 +6,11 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 18:33:19 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/22 21:29:31 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-int
-	ft_abs(int value)
-{
-	if (value < 0)
-		return (-value);
-	else
-		return (value);
-}
-
-int
-	ft_min_abs(int a, int b)
-{
-	if (ft_abs(a) < ft_abs(b))
-		return (a);
-	else
-		return (b);
-}
 
 // move executes the operations found by find_cheapest_insertion
 void
@@ -91,20 +73,32 @@ int
 		int val
 	)
 {
-	t_element	*b_temp;
-	int			b_index;
-	const int	b_size = ft_stacksize(*b);
+	t_element		*temp;
+	int				b_index;
+	const int		b_size = ft_stacksize(*b);
+	const t_element	*min = ft_extreme_element(b, -1);
+	const t_element	*max = ft_extreme_element(b, 1);
 
-	b_temp = *b;
+	if (val < min->v)
+		return (ft_indexstack(*b, min) + 1);
+	if (val > max->v)
+		return (ft_indexstack(*b, max));
 	b_index = 0;
-	while (b_temp != NULL)
+	temp = *b;
+	if (val > temp->v)
+	{
+		while (temp != NULL && temp->v < val)
+		{
+			b_index++;
+			temp = temp->next;
+		}
+	}
+	while (temp != NULL && temp->v > val)
 	{
 		b_index++;
-		if (b_temp->v > val && b_temp->next->v < val)
-				break ;
-		b_temp = b_temp->next;
+		temp = temp->next;
 	}
-	return (ft_min_abs(b_index, b_index - b_size));
+	return (b_index);
 }
 
 // find the number in a that can be pushed to b requiring the least operations
@@ -124,7 +118,9 @@ void
 {
 	t_element		*a_temp;
 	int				a_index;
+	int				b_index;
 	const int		a_size = ft_stacksize(*a);
+	const int		b_size = ft_stacksize(*b);
 	int	v;
 	int	v_temp;
 	t_element		*a_optimal;
@@ -134,8 +130,9 @@ void
 	while (a_temp != NULL)
 	{
 		a_temp->path.a_rotations = ft_min_abs(a_index, a_index - a_size);
-		a_temp->path.b_rotations = ft_find_b_index(b, a_temp->v);
-		printf("[%d](%d)\t%d\t%d\n", a_index, a_temp->v, a_temp->path.a_rotations, a_temp->path.b_rotations);
+		b_index = ft_find_b_index(b, a_temp->v);
+		a_temp->path.b_rotations = ft_min_abs(b_index, b_index - b_size);
+		// printf("[%d](%d)\t%d\t%d\n", a_index, a_temp->v, a_temp->path.a_rotations, a_temp->path.b_rotations);
 		a_index++;
 		a_temp = a_temp->next;
 	}
@@ -152,6 +149,5 @@ void
 		}
 		a_temp = a_temp->next;
 	}
-	// printf("moving: %d\t%d\n", a_optimal->path.a_rotations, a_optimal->path.b_rotations);
 	ft_move(a, b, a_optimal->path.a_rotations, a_optimal->path.b_rotations);
 }

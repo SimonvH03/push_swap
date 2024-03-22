@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 23:05:27 by simon             #+#    #+#             */
-/*   Updated: 2024/03/21 15:37:24 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/22 21:25:21 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,22 @@ t_element	*
 		temp = temp->next;
 	}
 	return (extreme);
+}
+
+int
+	ft_abs(int value)
+{
+	if (value < 0)
+		return (-value);
+	else
+		return (value);
+}
+
+int
+	ft_min_abs(int a, int b)
+{
+	if (ft_abs(a) <= ft_abs(b))
+		return (a);
+	else
+		return (b);
 }

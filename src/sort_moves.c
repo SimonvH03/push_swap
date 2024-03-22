@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/22 17:56:22 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/22 22:09:39 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void
 	while (*a != min && *a != max)
 		ra(a);
 	pb(a, b);
-	ft_print_both_stacks(a, b);
+	// ft_print_both_stacks(a, b);
 	ft_sort_three(a);
-	ft_print_both_stacks(a, b);
+	// ft_print_both_stacks(a, b);
 	pa(a, b);
 	if (*a == max)
 		ra(a);
@@ -74,6 +74,7 @@ int
 	pb(a, b);
 	if ((*b)->next->v > (*b)->v)
 		sb(b);
+	// ft_print_both_stacks(a, b);
 	return (EXIT_FAILURE);
 }
 
@@ -84,17 +85,66 @@ int
 		int n
 	)
 {
-	int	cap;
+	// int	cap;
 
-	ft_print_both_stacks(a, b);
-	cap = 0;
-	while (ft_stacksize(*a) > 3 && cap++ < MAXITERATIONS)
+	// ft_print_both_stacks(a, b);
+	// cap = 0;
+	while (ft_stacksize(*a) > 3)
 	{
 		ft_find_cheapest_insertion(a, b, n);
-		ft_printf("\e[33m[%d]\e[0m\n", cap);
-		ft_print_both_stacks(a, b);
+		// ft_printf("\e[33m[%d]\e[0m\n", cap);
+		// ft_print_both_stacks(a, b);
 	}
-	if (cap == MAXITERATIONS)
-		ft_printf("\e[33mCapped\e[0m\n");
+	// if (cap == MAXITERATIONS)
+	// 	ft_printf("\e[33mCapped\e[0m\n");
 	return (EXIT_SUCCESS);
+}
+
+int
+	ft_unload_b(
+		t_element **a,
+		t_element **b,
+		int n
+	)
+{
+	const t_element	*minimum = ft_extreme_element(a, -1);
+
+	while (*b != NULL)
+	{
+		if (minimum->v < (*b)->v)
+		{
+			while (ft_stacklast(*a)->v > (*b)->v)
+			{
+				rra(a);
+				// ft_print_both_stacks(a, b);
+			}
+		}
+		pa(a, b);
+	}
+	// ft_print_both_stacks(a, b);
+	return (EXIT_SUCCESS);
+}
+
+void
+	ft_final_set_a(
+		t_element **a,
+		int n
+	)
+{
+	const t_element	*minimum = ft_extreme_element(a, -1);
+	const int		index = ft_indexstack(*a, minimum);
+	int				i;
+
+	i = ft_min_abs(index, index - n);
+	
+	while (i > 0)
+	{
+		ra(a);
+		i--;
+	}
+	while (i < 0)
+	{
+		rra(a);
+		i++;
+	}
 }

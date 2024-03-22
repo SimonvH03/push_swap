@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 18:02:31 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/22 21:30:29 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define THEANSWER 42
 
 # ifndef MAXITERATIONS
-#  define MAXITERATIONS 5
+#  define MAXITERATIONS 50
 # endif
 
 typedef struct s_path
@@ -51,6 +51,8 @@ void		ft_sort_three(t_element **stack);
 
 // find cheapest insertion
 void		ft_find_cheapest_insertion(t_element **a, t_element **b, int n);
+int			ft_unload_b(t_element **a, t_element **b, int n);
+void		ft_final_set_a(t_element **a, int n);
 
 /// OPERATIONS
 // operations_s_p.c
@@ -83,10 +85,13 @@ t_element	*ft_stacknew(const char *arg);
 t_element	*ft_stack_iteration(t_element *stack, int (*f)(t_element *));
 int			ft_stacksize(t_element *stack);
 t_element	*ft_stacklast(t_element *stack);
+int			ft_indexstack(const t_element *haystack, const t_element *needle);
 t_element	*ft_stackindex(t_element *stack, int index);
 
 // sort utils
 t_element	*ft_extreme_element(t_element **stack, short sign);
+int			ft_abs(int val);
+int			ft_min_abs(int a, int b);
 
 // utils
 int			ft_maxint_check(const char *str);
