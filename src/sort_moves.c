@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/23 00:00:27 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/23 17:06:27 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,30 @@ int
 	return (EXIT_FAILURE);
 }
 
+void
+	ft_final_set_b(
+		t_element **b,
+		int n
+	)
+{
+	const t_element	*maximum = ft_extreme_element(b, 1);
+	const int		index = ft_indexstack(*b, maximum);
+	int				i;
+
+	i = ft_min_abs(index, index - n);
+
+	while (i > 0)
+	{
+		rb(b);
+		i--;
+	}
+	while (i < 0)
+	{
+		rrb(b);
+		i++;
+	}
+}
+
 int
 	ft_unload_b(
 		t_element **a,
@@ -83,8 +107,6 @@ int
 		int n
 	)
 {
-	const t_element	*minimum = ft_extreme_element(a, -1);
-
 	while (*b != NULL)
 	{
 		pa(a, b);
@@ -103,7 +125,7 @@ void
 	int				i;
 
 	i = ft_min_abs(index, index - n);
-	
+
 	while (i > 0)
 	{
 		ra(a);

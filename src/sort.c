@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 23:59:36 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/23 17:06:30 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int
 		ft_presort_b(a, b, n);
 	// ft_sort_three(a);
 	ft_unload_b(a, b, n);
-	ft_print_both_stacks(a, b);
+	// ft_print_both_stacks(a, b);
 	ft_final_set_a(a, n);
 	return (ft_sorted(a, b));
 }
