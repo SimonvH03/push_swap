@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 21:38:14 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:14:50 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,40 @@ int
 	return(total);
 }
 
+void
+	ft_execute_cheapest_insertion(
+		t_element **a,
+		t_element **b
+	)
+{
+	t_element		*a_temp;
+	t_element		*a_optimal;
+	int				v;
+	int				v_temp;
+
+	a_temp = *a;
+	a_optimal = a_temp;
+	v = ft_total_path_length(a_temp->path);
+	while (a_temp != NULL)
+	{
+		v_temp = ft_total_path_length(a_temp->path);
+		if (v_temp < v)
+		{
+			v = v_temp;
+			a_optimal = a_temp;
+		}
+		a_temp = a_temp->next;
+	}
+	ft_move(a, b, a_optimal->path.a_rotations, a_optimal->path.b_rotations);
+}
+
 int
 	ft_find_b_index(
 		t_element **b,
 		int val
 	)
 {
-	t_element		*temp;
+	t_element		*b_temp;
 	int				b_index;
 	const int		b_size = ft_stacksize(*b);
 	const t_element	*min = ft_extreme_element(b, -1);
@@ -84,19 +111,19 @@ int
 	if (val > max->v)
 		return (ft_indexstack(*b, max));
 	b_index = 0;
-	temp = *b;
-	if (val > temp->v)
+	b_temp = *b;
+	if (val > b_temp->v)
 	{
-		while (temp != NULL && temp->v < val)
+		while (b_temp != NULL && b_temp->v < val)
 		{
 			b_index++;
-			temp = temp->next;
+			b_temp = b_temp->next;
 		}
 	}
-	while (temp != NULL && temp->v > val)
+	while (b_temp != NULL && b_temp->v > val)
 	{
 		b_index++;
-		temp = temp->next;
+		b_temp = b_temp->next;
 	}
 	return (b_index);
 }
@@ -122,32 +149,16 @@ void
 	int				b_index;
 	const int		a_size = ft_stacksize(*a);
 	const int		b_size = ft_stacksize(*b);
-	int	v;
-	int	v_temp;
-	t_element		*a_optimal;
 
 	a_temp = *a;
 	a_index = 0;
 	while (a_temp != NULL)
 	{
-		a_temp->path.a_rotations = ft_min_abs(a_index, a_index - a_size);
 		b_index = ft_find_b_index(b, a_temp->v);
+		a_temp->path.a_rotations = ft_min_abs(a_index, a_index - a_size);
 		a_temp->path.b_rotations = ft_min_abs(b_index, b_index - b_size);
 		a_index++;
 		a_temp = a_temp->next;
 	}
-	a_temp = *a;
-	a_optimal = a_temp;
-	v = ft_total_path_length(a_temp->path);
-	while (a_temp != NULL)
-	{
-		v_temp = ft_total_path_length(a_temp->path);
-		if (v_temp < v)
-		{
-			v = v_temp;
-			a_optimal = a_temp;
-		}
-		a_temp = a_temp->next;
-	}
-	ft_move(a, b, a_optimal->path.a_rotations, a_optimal->path.b_rotations);
+	ft_execute_cheapest_insertion(a, b);
 }

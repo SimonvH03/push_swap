@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 21:38:14 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:15:46 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int
 		int n
 	)
 {
+	if (ft_sorted(a, b) == EXIT_SUCCESS)
+		return (EXIT_SUCCESS);
 	if (ft_init_sort(a, b, n) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	while (*a)

@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:36:04 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 21:38:14 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:15:39 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ int
 		return (ft_error());
 	// ft_printf("initial stack A:\n");
 	// ft_print_stack(a);
-	if (ft_sorted(a, b) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
 	n = ft_stacksize(*a);
 	ft_sort_that_mf(a, b, n);
 	// if (ft_sort_that_mf(a, b, n) == EXIT_SUCCESS)

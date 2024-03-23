@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 21:39:39 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/23 22:13:11 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,16 @@ typedef struct s_element
 	struct s_element	*next;
 }	t_element;
 
+typedef struct s_stackinfo
+{
+	t_element	*min;
+	t_element	*max;
+	int			mindex;
+	int			maxdex;
+	t_element	*last;
+	int			size;
+}	t_stackinfo;
+
 // init / parse
 int			ft_init_stacks(t_element ***a, t_element ***b, char **argv);
 int			ft_maxint_check(const char *str);
@@ -40,6 +50,9 @@ int			ft_maxint_check(const char *str);
 
 // main
 int			ft_sort_that_mf(t_element **a, t_element **b, int n);
+
+// stackinfo
+int			ft_stackinfo(t_stackinfo *stackinfo, t_element **stack);
 
 // sort moves
 int			ft_init_sort(t_element **a, t_element **b, int n);
