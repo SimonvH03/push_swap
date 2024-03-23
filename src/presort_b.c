@@ -6,11 +6,14 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 23:27:48 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/23 23:55:55 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+typedef void	(operation)(t_element **);
+typedef void	(double_operation)(t_element **, t_element **);
 
 // move executes the operations found by find_cheapest_insertion
 void
@@ -21,37 +24,34 @@ void
 		int b_rotations
 	)
 {
-	while (a_rotations > 0 && b_rotations > 0)
+	const int			a_sign = ft_sign(a_rotations);
+	const int			b_sign = ft_sign(b_rotations);
+	operation			*rotate_a;
+	operation			*rotate_b;
+	double_operation	*rotate_r;
+
+	if (a_sign > 0)
+		rotate_a = ra;
+	if (b_sign > 0)
+		rotate_b = rb;
+	while (a_rotations * a_sign > 0 && b_rotations * b_sign > 0)
 	{
-		rr(a, b);
-		a_rotations--;
-		b_rotations--;
+		if (a_sign > 0)
+			rr(a, b);
+		else
+			rrr(a, b);
+		a_rotations -= a_sign;
+		b_rotations -= b_sign;
 	}
 	while (a_rotations > 0)
 	{
-		ra(a);
+		rotate_a(a);
 		a_rotations--;
 	}
 	while (b_rotations > 0)
 	{
-		rb(b);
+		rotate_b(b);
 		b_rotations--;
-	}
-	while (a_rotations < 0 && b_rotations < 0)
-	{
-		rrr(a, b);
-		a_rotations++;
-		b_rotations++;
-	}
-	while (a_rotations < 0)
-	{
-		rra(a);
-		a_rotations++;
-	}
-	while (b_rotations < 0)
-	{
-		rrb(b);
-		b_rotations++;
 	}
 	pb(a, b);
 }
@@ -64,7 +64,7 @@ int
 	int	total;
 
 	total = ft_abs(path.a_rotations) + ft_abs(path.b_rotations);
-	return(total);
+	return (total);
 }
 
 void
@@ -133,9 +133,9 @@ int
 // per index in stack A see the path to stack B
 // if A + B (- doubles) < index, immediately execute
 // this should be limited to 25% of total size (n) up and down stack A
-// potential! (during presort_b) when rotating A to push to B, always evaluate sa(A)!!!
-// probably invert B polarity when swapping A
-//		 printf("[%d](%d)\t%d\t%d\n", a_index, a_temp->v, a_temp->path.a_rotations, a_temp->path.b_rotations);
+// potential! when rotating A to push to B, always evaluate sa(A)!
+// 	probably invert B polarity when swapping A
+// printf("[%d](%d)\t%d\t%d\n", a_index, a_temp->v, a_temp->path.a_rotations, a_temp->path.b_rotations);
 void
 	ft_presort_b(
 		t_element **a,
