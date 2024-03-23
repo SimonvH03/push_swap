@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 23:06:16 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/23 21:39:39 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 # include <stdbool.h>
 
 # define THEANSWER 42
-
-# ifndef MAXITERATIONS
-#  define MAXITERATIONS 50
-# endif
 
 typedef struct s_path
 {
@@ -39,6 +35,7 @@ typedef struct s_element
 
 // init / parse
 int			ft_init_stacks(t_element ***a, t_element ***b, char **argv);
+int			ft_maxint_check(const char *str);
 //int		ft_check_duplicates
 
 // main
@@ -52,25 +49,6 @@ void		ft_sort_three(t_element **stack);
 void		ft_presort_b(t_element **a, t_element **b, int n);
 int			ft_unload_b(t_element **a, t_element **b, int n);
 void		ft_final_set_a(t_element **a, int n);
-
-/// OPERATIONS
-// operations_s_p.c
-void		sa(t_element **a);
-void		sb(t_element **b);
-void		ss(t_element **a, t_element **b);
-
-void		pa(t_element **a, t_element **b);
-void		pb(t_element **a, t_element **b);
-
-// operations_r.c
-void		ra(t_element **a);
-void		rb(t_element **b);
-void		rr(t_element **a, t_element **b);
-
-// operations_rr.c
-void		rra(t_element **a);
-void		rrb(t_element **b);
-void		rrr(t_element **a, t_element **b);
 
 // operation logic
 void		ft_swap(t_element **stack);
@@ -93,11 +71,29 @@ int			ft_abs(int val);
 int			ft_min_abs(int a, int b);
 
 // utils
-int			ft_maxint_check(const char *str);
 void		ft_free_both_stacks(t_element **a, t_element **b);
 
 // test utils
 void		ft_print_stack(t_element **stack);
 void		ft_print_both_stacks(t_element **a, t_element **b);
+
+/// OPERATIONS
+// operations_s_p.c
+void		sa(t_element **a);
+void		sb(t_element **b);
+void		ss(t_element **a, t_element **b);
+
+void		pa(t_element **a, t_element **b);
+void		pb(t_element **a, t_element **b);
+
+// operations_r.c
+void		ra(t_element **a);
+void		rb(t_element **b);
+void		rr(t_element **a, t_element **b);
+
+// operations_rr.c
+void		rra(t_element **a);
+void		rrb(t_element **b);
+void		rrr(t_element **a, t_element **b);
 
 #endif

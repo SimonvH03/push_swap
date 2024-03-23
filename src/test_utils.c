@@ -6,11 +6,11 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:28:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/22 21:40:27 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/23 21:38:14 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 void
 	ft_print_stack(

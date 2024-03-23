@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 17:06:30 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/23 21:38:14 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "push_swap.h"
 
 int
 	ft_sorted(
@@ -44,16 +44,12 @@ int
 		int n
 	)
 {
-	// ft_printf("\e[33mSorting...\e[0m\n");
-	if (ft_sorted(a, b) == EXIT_SUCCESS)
-		return (EXIT_SUCCESS);
 	if (ft_init_sort(a, b, n) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	while (*a)
 		ft_presort_b(a, b, n);
 	// ft_sort_three(a);
 	ft_unload_b(a, b, n);
-	// ft_print_both_stacks(a, b);
 	ft_final_set_a(a, n);
 	return (ft_sorted(a, b));
 }
