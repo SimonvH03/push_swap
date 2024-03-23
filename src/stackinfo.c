@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   stackinfo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:45:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 22:16:33 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/23 23:26:47 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void
+	ft_stackinfo_init(
+		t_stackinfo *stackinfo,
+		t_element *first_element
+	)
+{
+	stackinfo->min = first_element;
+	stackinfo->max = first_element;
+	stackinfo->size = 0;
+	stackinfo->mindex = 0;
+	stackinfo->maxdex = 0;
+}
 
 int
 	ft_stackinfo(
@@ -20,11 +33,10 @@ int
 {
 	t_element	*temp;
 
-	if (stackinfo, stack == NULL || *stack == NULL)
+	if (stackinfo == NULL || stack == NULL || *stack == NULL)
 		return (EXIT_FAILURE);
+	ft_stackinfo_init(stackinfo, *stack);
 	temp = *stack;
-	stackinfo->min, stackinfo->max = temp;
-	stackinfo->size, stackinfo->mindex, stackinfo->max = 0;
 	while (temp->next != NULL)
 	{
 		if (temp->v < stackinfo->min->v)

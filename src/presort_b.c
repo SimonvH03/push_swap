@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   presort_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 22:14:50 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/23 23:27:48 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,16 +100,15 @@ int
 		int val
 	)
 {
-	t_element		*b_temp;
-	int				b_index;
-	const int		b_size = ft_stacksize(*b);
-	const t_element	*min = ft_extreme_element(b, -1);
-	const t_element	*max = ft_extreme_element(b, 1);
+	t_element	*b_temp;
+	int			b_index;
+	t_stackinfo	stackinfo;
 
-	if (val < min->v)
-		return (ft_indexstack(*b, min) + 1);
-	if (val > max->v)
-		return (ft_indexstack(*b, max));
+	ft_stackinfo(&stackinfo, b);
+	if (val < stackinfo.min->v)
+		return (stackinfo.mindex + 1);
+	if (val > stackinfo.max->v)
+		return (stackinfo.maxdex);
 	b_index = 0;
 	b_temp = *b;
 	if (val > b_temp->v)

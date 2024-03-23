@@ -18,6 +18,7 @@ SRC			=	$(SRCDIR)/init_stacks.c \
 				$(SRCDIR)/sort_moves.c \
 				$(SRCDIR)/sort_utils.c \
 				$(SRCDIR)/sort.c \
+				$(SRCDIR)/stackinfo.c \
 				$(SRCDIR)/test_utils.c \
 				$(SRCDIR)/utils.c \
 
