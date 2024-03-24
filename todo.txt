@@ -1,3 +1,4 @@
+Index ONCE, update on rotation and pushing
 
 Favour double operations
 	(find_cheapest_insertion) let opposite operations be more expensive than similar operations
