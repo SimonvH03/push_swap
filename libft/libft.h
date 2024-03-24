@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:53:50 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 23:36:21 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/24 00:24:13 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,8 +101,8 @@ t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list		*ft_lstnew(void *content);
 int			ft_lstsize(t_list *lst);
 
-double		ft_abs(double value);
-short		ft_sign(double value);
+int			ft_abs(int value);
+short		ft_sign(int value);
 
 int			ft_writing(const char *str, int n);
 

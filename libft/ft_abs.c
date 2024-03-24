@@ -6,15 +6,15 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 23:32:43 by simon             #+#    #+#             */
-/*   Updated: 2024/03/23 23:33:56 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/24 00:23:44 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double
+int
 	ft_abs(
-		double value)
+		int value)
 {
 	if (value < 0)
 		return (-value);

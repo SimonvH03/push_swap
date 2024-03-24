@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/23 22:13:11 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/24 02:12:36 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 typedef struct s_path
 {
-	int	a_rotations;
-	int	b_rotations;
+	int	a;
+	int	b;
 }	t_path;
 
 typedef struct s_element
@@ -82,6 +82,7 @@ t_element	*ft_stackindex(t_element *stack, int index);
 t_element	*ft_extreme_element(t_element **stack, short sign);
 int			ft_abs(int val);
 int			ft_min_abs(int a, int b);
+int			ft_max(int a, int b);
 
 // utils
 void		ft_free_both_stacks(t_element **a, t_element **b);
