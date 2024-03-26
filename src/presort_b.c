@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/24 18:17:33 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/26 22:29:02 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 typedef void	(operation)(t_element **);
 typedef void	(double_operation)(t_element **, t_element **);
+
 typedef struct s_move
 {
 	operation			*rotate_a;
