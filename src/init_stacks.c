@@ -6,13 +6,15 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 16:55:03 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int
+// check duplicates
+
+static int
 	ft_maxint_check(
 		const char *str
 	)
@@ -35,7 +37,10 @@ int
 	return (EXIT_SUCCESS);
 }
 
-t_element	*ft_stacknew(const char *arg)
+static t_element	*
+	ft_stacknew(
+		const char *arg
+	)
 {
 	t_element	*new;
 
@@ -50,7 +55,7 @@ t_element	*ft_stacknew(const char *arg)
 	return (new);
 }
 
-t_element	*
+static t_element	*
 	ft_create_stack_a(
 		char **argv
 	)

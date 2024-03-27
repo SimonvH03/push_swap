@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/24 02:12:36 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 16:53:55 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_stackinfo
 
 // init / parse
 int			ft_init_stacks(t_element ***a, t_element ***b, char **argv);
-int			ft_maxint_check(const char *str);
 //int		ft_check_duplicates
 
 // main
