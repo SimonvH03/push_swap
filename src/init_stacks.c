@@ -6,13 +6,38 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 16:55:03 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:10:30 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-// check duplicates
+static int
+	ft_check_duplicates(
+		t_element **stack
+	)
+{
+	t_element	*temp;
+	t_element	*check;
+
+	if (stack == NULL)
+		return (EXIT_SUCCESS);
+	temp = *stack;
+	while (temp != NULL)
+	{
+		check = *stack;
+		while (check != NULL)
+		{
+			if (temp->v == check->v
+				&& temp != check)
+				return (EXIT_FAILURE);
+			check = check->next;
+		}
+		temp = temp->next;
+	}
+	
+	return (EXIT_SUCCESS);
+}
 
 static int
 	ft_maxint_check(
@@ -76,6 +101,8 @@ static t_element	*
 		ft_stackadd_front(&stack, new);
 		i++;
 	}
+	if (ft_check_duplicates(&stack) == EXIT_FAILURE)
+		return (NULL);
 	return (stack);
 }
 
