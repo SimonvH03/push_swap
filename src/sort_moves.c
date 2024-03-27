@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 18:48:16 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,12 @@ void
 	)
 {
 	const t_element	*min = ft_extreme_element(a, -1);
-	const t_element	*max = ft_extreme_element(a, 1);
 
-	while (*a != min && *a != max)
+	while (*a != min)
 		ra(a);
 	pb(a, b);
 	ft_sort_three(a);
 	pa(a, b);
-	if (*a == max)
-		ra(a);
 	return ;
 }
 
