@@ -6,11 +6,11 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:45:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/24 16:16:05 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 void
 	ft_stackinfo_init(

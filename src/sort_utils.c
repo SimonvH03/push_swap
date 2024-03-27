@@ -6,11 +6,11 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 23:05:27 by simon             #+#    #+#             */
-/*   Updated: 2024/03/24 02:21:44 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 t_element	*
 	ft_extreme_element(

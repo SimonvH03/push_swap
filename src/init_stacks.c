@@ -3,20 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/23 21:38:14 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 int
 	ft_maxint_check(
 		const char *str
 	)
 {
+	const int	len = ft_strlen(str);
+
+	if (*str != '-' && len > 10
+		|| len > 11)
+		return (EXIT_FAILURE);
+	if (len == 11)
+	{
+		if (ft_strncmp(str, "-2147483648", 11) > 0)
+			return (EXIT_FAILURE);
+	}
+	if (len == 10)
+	{
+		if (ft_strncmp(str, "2147483647", 10) > 0)
+			return (EXIT_FAILURE);
+	}
 	return (EXIT_SUCCESS);
 }
 
@@ -71,7 +86,7 @@ int
 		return (EXIT_FAILURE);
 	**stack_a = NULL;
 	**stack_a = ft_create_stack_a(argv);
-	if (*stack_a == NULL)
+	if (**stack_a == NULL)
 		return (EXIT_FAILURE);
 	*stack_b = (t_element **)malloc(sizeof(t_element *));
 	if (*stack_b == NULL)

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/23 21:53:37 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../include/push_swap.h"
 
 // not optimized
 void
