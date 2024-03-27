@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 16:53:55 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 17:07:31 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,23 +62,16 @@ void		ft_presort_b(t_element **a, t_element **b, int n);
 int			ft_unload_b(t_element **a, t_element **b, int n);
 void		ft_final_set_a(t_element **a, int n);
 
-// operation logic
-void		ft_swap(t_element **stack);
-void		ft_push(t_element **dest, t_element **src);
-void		ft_rotate(t_element **stack);
-void		ft_reverse_rotate(t_element **stack);
-
 // list utils
 void		ft_stackadd_front(t_element **stack, t_element *new);
-t_element	*ft_stacknew(const char *arg);
 t_element	*ft_stack_iteration(t_element *stack, int (*f)(t_element *));
 int			ft_stacksize(t_element *stack);
 t_element	*ft_stacklast(t_element *stack);
 int			ft_indexstack(const t_element *haystack, const t_element *needle);
 t_element	*ft_stackindex(t_element *stack, int index);
-
-// sort utils
 t_element	*ft_extreme_element(t_element **stack, short sign);
+
+// number utils
 int			ft_abs(int val);
 int			ft_min_abs(int a, int b);
 int			ft_max(int a, int b);
@@ -91,11 +84,16 @@ void		ft_print_stack(t_element **stack);
 void		ft_print_both_stacks(t_element **a, t_element **b);
 
 /// OPERATIONS
+// operation logic
+void		ft_swap(t_element **stack);
+void		ft_push(t_element **dest, t_element **src);
+void		ft_rotate(t_element **stack);
+void		ft_reverse_rotate(t_element **stack);
+
 // operations_s_p.c
 void		sa(t_element **a);
 void		sb(t_element **b);
 void		ss(t_element **a, t_element **b);
-
 void		pa(t_element **a, t_element **b);
 void		pb(t_element **a, t_element **b);
 
