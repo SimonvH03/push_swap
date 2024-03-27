@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:11:55 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int
 }
 
 int
-	ft_sort_that_mf(
+	ft_sort_that_boie(
 		t_element **a,
 		t_element **b,
 		int n

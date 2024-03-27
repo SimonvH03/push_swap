@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 17:07:31 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:11:50 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int			ft_init_stacks(t_element ***a, t_element ***b, char **argv);
 //int		ft_check_duplicates
 
 // main
-int			ft_sort_that_mf(t_element **a, t_element **b, int n);
+int			ft_sort_that_boie(t_element **a, t_element **b, int n);
 
 // stackinfo
 int			ft_stackinfo(t_stackinfo *stackinfo, t_element **stack);
