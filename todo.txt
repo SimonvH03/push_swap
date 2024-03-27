@@ -1,3 +1,7 @@
 Index once, update on rotation and pushing
 
 free stacks after malloc fail (or other init err)
+
+maybe use ft_split, do the duplicate check in an array instead of list
+
+sort final 3, 4 or 5 on a
