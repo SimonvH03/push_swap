@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:14:51 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void
 	)
 {
 	ft_printf("ra\n");
-	ft_rotate(a);
+	rotate(a);
 }
 
 void
@@ -27,7 +27,7 @@ void
 	)
 {
 	ft_printf("rb\n");
-	ft_rotate(b);
+	rotate(b);
 }
 
 void
@@ -37,6 +37,6 @@ void
 	)
 {
 	ft_printf("rr\n");
-	ft_rotate(a);
-	ft_rotate(b);
+	rotate(a);
+	rotate(b);
 }

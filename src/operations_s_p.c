@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:14:51 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void
 	)
 {
 	ft_printf("sa\n");
-	ft_swap(a);
+	swap(a);
 }
 
 void
@@ -27,7 +27,7 @@ void
 	)
 {
 	ft_printf("sb\n");
-	ft_swap(b);
+	swap(b);
 }
 
 void
@@ -37,8 +37,8 @@ void
 	)
 {
 	ft_printf("ss\n");
-	ft_swap(a);
-	ft_swap(b);
+	swap(a);
+	swap(b);
 }
 
 void
@@ -48,7 +48,7 @@ void
 	)
 {
 	ft_printf("pa\n");
-	ft_push(a, b);
+	push(a, b);
 }
 
 void
@@ -58,5 +58,5 @@ void
 	)
 {
 	ft_printf("pb\n");
-	ft_push(b, a);
+	push(b, a);
 }

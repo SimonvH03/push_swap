@@ -6,14 +6,14 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 23:11:55 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:34:11 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-int
-	ft_sorted(
+static int
+	sorted(
 		t_element **a,
 		t_element **b
 	)
@@ -38,20 +38,19 @@ int
 }
 
 int
-	ft_sort_that_boie(
+	sort_that_boie(
 		t_element **a,
-		t_element **b,
-		int n
+		t_element **b
 	)
 {
-	if (ft_sorted(a, b) == EXIT_SUCCESS)
+	if (sorted(a, b) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
-	if (ft_init_sort(a, b, n) == EXIT_SUCCESS)
+	if (init_sort(a, b) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	while (*a)
-		ft_presort_b(a, b, n);
-	// ft_sort_three(a);
-	ft_unload_b(a, b, n);
-	ft_final_set_a(a, n);
-	return (ft_sorted(a, b));
+		presort_b(a, b);
+	// sort_three(a);
+	final_set_b(b);
+	unload_b(a, b);
+	return (sorted(a, b));
 }

@@ -6,14 +6,14 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 23:10:30 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:32:59 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 static int
-	ft_check_duplicates(
+	check_duplicates(
 		t_element **stack
 	)
 {
@@ -40,7 +40,7 @@ static int
 }
 
 static int
-	ft_maxint_check(
+	maxint_check(
 		const char *str
 	)
 {
@@ -63,7 +63,7 @@ static int
 }
 
 static t_element	*
-	ft_stacknew(
+	stacknew(
 		const char *arg
 	)
 {
@@ -72,7 +72,7 @@ static t_element	*
 	new = (t_element *)malloc(sizeof(t_element));
 	if (new == NULL)
 		return (NULL);
-	if (ft_maxint_check(arg) == EXIT_FAILURE)
+	if (maxint_check(arg) == EXIT_FAILURE)
 		return (NULL);
 	new->v = ft_atoi(arg);
 	new->path = (t_path){0, 0};
@@ -81,7 +81,7 @@ static t_element	*
 }
 
 static t_element	*
-	ft_create_stack_a(
+	create_stack_a(
 		char **argv
 	)
 {
@@ -89,25 +89,25 @@ static t_element	*
 	t_element	*new;
 	int			i;
 
-	stack = ft_stacknew(argv[1]);
+	stack = stacknew(argv[1]);
 	if (stack == NULL)
 		return (NULL);
 	i = 2;
 	while (argv[i] != NULL)
 	{
-		new = ft_stacknew(argv[i]);
+		new = stacknew(argv[i]);
 		if (new == NULL)
 			return (NULL);
-		ft_stackadd_front(&stack, new);
+		stackadd_front(&stack, new);
 		i++;
 	}
-	if (ft_check_duplicates(&stack) == EXIT_FAILURE)
+	if (check_duplicates(&stack) == EXIT_FAILURE)
 		return (NULL);
 	return (stack);
 }
 
 int
-	ft_init_stacks(
+	init_stacks(
 		t_element ***stack_a,
 		t_element ***stack_b,
 		char **argv
@@ -117,7 +117,7 @@ int
 	if (*stack_a == NULL)
 		return (EXIT_FAILURE);
 	**stack_a = NULL;
-	**stack_a = ft_create_stack_a(argv);
+	**stack_a = create_stack_a(argv);
 	if (**stack_a == NULL)
 		return (EXIT_FAILURE);
 	*stack_b = (t_element **)malloc(sizeof(t_element *));

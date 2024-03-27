@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 23:11:50 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:34:53 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,33 +43,32 @@ typedef struct s_stackinfo
 	int			size;
 }	t_stackinfo;
 
-// init / parse
-int			ft_init_stacks(t_element ***a, t_element ***b, char **argv);
-//int		ft_check_duplicates
+// init
+int			init_stacks(t_element ***a, t_element ***b, char **argv);
 
 // main
-int			ft_sort_that_boie(t_element **a, t_element **b, int n);
+int			sort_that_boie(t_element **a, t_element **b);
 
 // stackinfo
-int			ft_stackinfo(t_stackinfo *stackinfo, t_element **stack);
+int			stackinfo(t_stackinfo *stackinfo, t_element **stack);
 
 // sort moves
-int			ft_init_sort(t_element **a, t_element **b, int n);
-void		ft_sort_three(t_element **stack);
+int			init_sort(t_element **a, t_element **b);
+void		sort_three(t_element **stack);
 
 // presort b
-void		ft_presort_b(t_element **a, t_element **b, int n);
-int			ft_unload_b(t_element **a, t_element **b, int n);
-void		ft_final_set_a(t_element **a, int n);
+void		presort_b(t_element **a, t_element **b);
+void		final_set_b(t_element **stack);
+int			unload_b(t_element **a, t_element **b);
 
 // list utils
-void		ft_stackadd_front(t_element **stack, t_element *new);
-t_element	*ft_stack_iteration(t_element *stack, int (*f)(t_element *));
-int			ft_stacksize(t_element *stack);
-t_element	*ft_stacklast(t_element *stack);
-int			ft_indexstack(const t_element *haystack, const t_element *needle);
-t_element	*ft_stackindex(t_element *stack, int index);
-t_element	*ft_extreme_element(t_element **stack, short sign);
+void		stackadd_front(t_element **stack, t_element *new);
+t_element	*stack_iteration(t_element *stack, int (*f)(t_element *));
+int			stacksize(t_element *stack);
+t_element	*stacklast(t_element *stack);
+int			indexstack(const t_element *haystack, const t_element *needle);
+t_element	*stackindex(t_element *stack, int index);
+t_element	*extreme_element(t_element **stack, short sign);
 
 // number utils
 int			ft_abs(int val);
@@ -77,18 +76,18 @@ int			ft_min_abs(int a, int b);
 int			ft_max(int a, int b);
 
 // utils
-void		ft_free_both_stacks(t_element **a, t_element **b);
+void		free_both_stacks(t_element **a, t_element **b);
 
 // test utils
-void		ft_print_stack(t_element **stack);
-void		ft_print_both_stacks(t_element **a, t_element **b);
+void		print_stack(t_element **stack);
+void		print_both_stacks(t_element **a, t_element **b);
 
 /// OPERATIONS
 // operation logic
-void		ft_swap(t_element **stack);
-void		ft_push(t_element **dest, t_element **src);
-void		ft_rotate(t_element **stack);
-void		ft_reverse_rotate(t_element **stack);
+void		swap(t_element **stack);
+void		push(t_element **dest, t_element **src);
+void		rotate(t_element **stack);
+void		reverse_rotate(t_element **stack);
 
 // operations_s_p.c
 void		sa(t_element **a);

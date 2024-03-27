@@ -6,20 +6,20 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 19:02:02 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:13:12 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 void
-	ft_swap(
+	swap(
 		t_element **stack
 	)
 {
 	t_element	*temp;
 
-	if (ft_stacksize(*stack) < 2)
+	if (stacksize(*stack) < 2)
 		return ;
 	temp = (*stack)->next;
 	(*stack)->next = (*stack)->next->next;
@@ -28,14 +28,14 @@ void
 }
 
 void
-	ft_push(
+	push(
 		t_element **dest,
 		t_element **src
 	)
 {
 	t_element	*temp;
 
-	if (ft_stacksize(*src) < 1)
+	if (stacksize(*src) < 1)
 		return ;
 	temp = *src;
 	*src = (*src)->next;
@@ -44,13 +44,13 @@ void
 }
 
 void
-	ft_rotate(
+	rotate(
 		t_element **stack
 	)
 {
 	t_element	*temp;
 
-	if (ft_stacksize(*stack) < 2)
+	if (stacksize(*stack) < 2)
 		return ;
 	temp = *stack;
 	while (temp->next != NULL)
@@ -61,13 +61,13 @@ void
 }
 
 void
-	ft_reverse_rotate(
+	reverse_rotate(
 		t_element **stack
 	)
 {
 	t_element	*temp;
 
-	if (ft_stacksize(*stack) < 2)
+	if (stacksize(*stack) < 2)
 		return ;
 	temp = *stack;
 	while (temp->next->next != NULL)

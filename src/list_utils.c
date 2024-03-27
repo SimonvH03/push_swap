@@ -6,14 +6,14 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 23:15:48 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:13:12 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 t_element	*
-	ft_stack_iteration(
+	stack_iteration(
 		t_element *stack,
 		int (*f)(t_element *)
 	)
@@ -30,17 +30,17 @@ t_element	*
 }
 
 // this is temporarily stackadd_back while investigating an issue
-void	ft_stackadd_front(t_element **stack, t_element *new)
+void	stackadd_front(t_element **stack, t_element *new)
 {
 	if (new == NULL)
 		return ;
 	else if (*stack != NULL)
-		ft_stacklast(*stack)->next = new;
+		stacklast(*stack)->next = new;
 	else
 		*stack = new;
 }
 
-t_element	*ft_stacklast(t_element *stack)
+t_element	*stacklast(t_element *stack)
 {
 	if (stack != NULL)
 		while (stack->next != NULL)
@@ -48,7 +48,7 @@ t_element	*ft_stacklast(t_element *stack)
 	return (stack);
 }
 
-int	ft_stacksize(t_element *stack)
+int	stacksize(t_element *stack)
 {
 	int	count;
 
@@ -61,7 +61,7 @@ int	ft_stacksize(t_element *stack)
 	return (count);
 }
 
-int	ft_indexstack(const t_element *haystack, const t_element *needle)
+int	indexstack(const t_element *haystack, const t_element *needle)
 {
 	int	index;
 
@@ -74,7 +74,7 @@ int	ft_indexstack(const t_element *haystack, const t_element *needle)
 	return (index);
 }
 
-t_element	*ft_stackindex(t_element *stack, int index)
+t_element	*stackindex(t_element *stack, int index)
 {
 	while (stack != NULL && index--)
 		stack = stack->next;

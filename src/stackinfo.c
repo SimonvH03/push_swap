@@ -6,14 +6,14 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:45:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 16:51:18 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/27 23:32:36 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
 void
-	ft_stackinfo_init(
+	stackinfo_init(
 		t_stackinfo *stackinfo,
 		t_element *first_element
 	)
@@ -26,7 +26,7 @@ void
 }
 
 int
-	ft_stackinfo(
+	stackinfo(
 		t_stackinfo *stackinfo,
 		t_element **stack
 	)
@@ -35,7 +35,7 @@ int
 
 	if (stackinfo == NULL || stack == NULL || *stack == NULL)
 		return (EXIT_FAILURE);
-	ft_stackinfo_init(stackinfo, *stack);
+	stackinfo_init(stackinfo, *stack);
 	temp = *stack;
 	while (temp != NULL)
 	{

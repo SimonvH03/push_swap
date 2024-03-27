@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 18:48:16 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/27 23:33:39 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,44 @@
 
 // not optimized
 void
-	ft_sort_four(
+	sort_four(
 		t_element **a,
 		t_element **b
 	)
 {
-	const t_element	*min = ft_extreme_element(a, -1);
+	const t_element	*min = extreme_element(a, -1);
 
 	while (*a != min)
 		ra(a);
 	pb(a, b);
-	ft_sort_three(a);
+	sort_three(a);
 	pa(a, b);
 	return ;
 }
 
 void
-	ft_sort_three(
+	sort_three(
 		t_element **a
 	)
 {
-	const t_element	*maximum = ft_extreme_element(a, 1);
+	const t_element	*max = extreme_element(a, 1);
 
-	if (maximum == (*a))
+	if (max == (*a))
 		ra(a);
-	else if (maximum == (*a)->next)
+	else if (max == (*a)->next)
 		rra(a);
 	if ((*a)->v > (*a)->next->v)
 		sa(a);
 }
 
 int
-	ft_init_sort(
+	init_sort(
 		t_element **a,
-		t_element **b,
-		int n
+		t_element **b
 	)
 {
+	const int	n = stacksize(*a);
+
 	if (n == 2)
 	{
 		sa(a);
@@ -58,12 +59,12 @@ int
 	}
 	if (n == 3)
 	{
-		ft_sort_three(a);
+		sort_three(a);
 		return (EXIT_SUCCESS);
 	}
 	if (n == 4)
 	{
-		ft_sort_four(a, b);
+		sort_four(a, b);
 		return (EXIT_SUCCESS);
 	}
 	pb(a, b);
@@ -73,17 +74,17 @@ int
 	return (EXIT_FAILURE);
 }
 
+// check if stacklast(*a) == max, then combine rb or rrb once or twice to save the rra
 void
-	ft_final_set_b(
-		t_element **b,
-		int n
+	final_set_b(
+		t_element **b
 	)
 {
-	const t_element	*maximum = ft_extreme_element(b, 1);
-	const int		index = ft_indexstack(*b, maximum);
-	int				i;
+	t_stackinfo	info;
+	int			i;
 
-	i = ft_min_abs(index, index - n);
+	stackinfo(&info, b);
+	i = ft_min_abs(info.maxdex, info.maxdex - info.size);
 
 	while (i > 0)
 	{
@@ -98,10 +99,9 @@ void
 }
 
 int
-	ft_unload_b(
+	unload_b(
 		t_element **a,
-		t_element **b,
-		int n
+		t_element **b
 	)
 {
 	while (*b != NULL)
@@ -109,28 +109,4 @@ int
 		pa(a, b);
 	}
 	return (EXIT_SUCCESS);
-}
-
-void
-	ft_final_set_a(
-		t_element **a,
-		int n
-	)
-{
-	const t_element	*minimum = ft_extreme_element(a, -1);
-	const int		index = ft_indexstack(*a, minimum);
-	int				i;
-
-	i = ft_min_abs(index, index - n);
-
-	while (i > 0)
-	{
-		ra(a);
-		i--;
-	}
-	while (i < 0)
-	{
-		rra(a);
-		i++;
-	}
 }
