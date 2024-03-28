@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:28:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 23:13:12 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 23:57:44 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ void
 		printf("[%d]\t", i++);
 		if (temp_a)
 		{
-			printf("%-10d", temp_a->v);
+			printf("\e[31m%-10d", temp_a->v);
 			temp_a = temp_a->next;
 		}
 		else
 			printf("          ");
 		if (temp_b)
 		{
-			printf(" %-10d", temp_b->v);
+			printf(" \e[31m%-10d", temp_b->v);
 			temp_b = temp_b->next;
 		}
-		printf("\n");
+		printf("\e[0m\n");
 	}
 }

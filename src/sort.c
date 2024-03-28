@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
+/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/28 21:21:55 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/03/28 23:51:23 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int
 	while (stacksize(*a) > 3)
 		presort_b(a, b);
 	sort_three(a);
+	// print_both_stacks(a, b);
 	final_set_b(b);
 	unload_b(a, b);
 	return (sorted(a, b));

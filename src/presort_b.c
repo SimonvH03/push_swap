@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/28 16:48:11 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 23:51:16 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,33 +50,32 @@ void
 	move(
 		t_element **a,
 		t_element **b,
-		int a_rotations,
-		int b_rotations
+		t_path path
 	)
 {
-	const int			a_sign = ft_sign(a_rotations);
-	const int			b_sign = ft_sign(b_rotations);
+	const int			a_sign = ft_sign(path.a);
+	const int			b_sign = ft_sign(path.b);
 	t_move				move;
 
 	move_init(&move, a_sign, b_sign);
 	if (a_sign == b_sign)
 	{
-		while (a_rotations * a_sign > 0 && b_rotations * b_sign > 0)
+		while (path.a * a_sign > 0 && path.b * b_sign > 0)
 		{
 			move.rotate_both(a, b);
-			a_rotations -= a_sign;
-			b_rotations -= b_sign;
+			path.a -= a_sign;
+			path.b -= b_sign;
 		}
 	}
-	while (a_rotations * a_sign > 0)
+	while (path.a * a_sign > 0)
 	{
 		move.rotate_a(a);
-		a_rotations -= a_sign;
+		path.a -= a_sign;
 	}
-	while (b_rotations * b_sign > 0)
+	while (path.b * b_sign > 0)
 	{
 		move.rotate_b(b);
-		b_rotations -= b_sign;
+		path.b -= b_sign;
 	}
 	pb(a, b);
 }
@@ -95,6 +94,44 @@ int
 	return (total);
 }
 
+// void
+// 	execute_cheapest_insertion(
+// 		t_element **a,
+// 		t_element **b
+// 	)
+// {
+// 	t_element		*a_temp;
+// 	t_element		*a_optimal;
+// 	int				v;
+// 	int				v_temp;
+
+// 	// int	i;
+// 	// const int	n = stacksize(*a);
+// 	// i = 0;
+
+// 	a_temp = *a;
+// 	a_optimal = a_temp;
+// 	v = total_path_length(a_temp->path);
+// 	while (a_temp != NULL)
+// 	{
+// 		v_temp = total_path_length(a_temp->path);
+// 		if (v_temp < v)
+// 		{
+// 			v = v_temp;
+// 			a_optimal = a_temp;
+// 		}
+// 		// if (n > 60)
+// 		// {
+// 		// 	printf("[%d]	\e[3%dm%d\e[0m\n", i, v_temp / 10, v_temp);
+// 		// 	i++;
+// 		// }
+// 		a_temp = a_temp->next;
+// 	}
+// 	// printf("\e[33m(%d) %2d %2d  = %2d\e[0m\n", a_optimal->v, a_optimal->path.a, a_optimal->path.b, v);
+// 	// print_both_stacks(a, b);
+// 	move(a, b, a_optimal->path);
+// }
+
 void
 	execute_cheapest_insertion(
 		t_element **a,
@@ -105,10 +142,6 @@ void
 	t_element		*a_optimal;
 	int				v;
 	int				v_temp;
-
-	// int	i;
-	// const int	n = stacksize(*a);
-	// i = 0;
 
 	a_temp = *a;
 	a_optimal = a_temp;
@@ -121,17 +154,11 @@ void
 			v = v_temp;
 			a_optimal = a_temp;
 		}
-		// if (n > 60)
-		// {
-		// 	printf("[%d]	\e[3%dm%d\e[0m\n", i, v_temp / 10, v_temp);
-		// 	i++;
-		// }
 		a_temp = a_temp->next;
 	}
-	// printf("\e[33m(%d) %2d %2d  = %2d\e[0m\n", a_optimal->v, a_optimal->path.a, a_optimal->path.b, v);
-	// print_both_stacks(a, b);
-	move(a, b, a_optimal->path.a, a_optimal->path.b);
+	move(a, b, a_optimal->path);
 }
+
 
 int
 	find_b_index(

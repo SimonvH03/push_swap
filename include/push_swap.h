@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/28 17:06:46 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 23:25:55 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,13 @@ int			stackinfo(t_stackinfo *stackinfo, t_element **stack);
 // sort moves
 int			init_sort(t_element **a, t_element **b);
 void		sort_three(t_element **stack);
+void		final_set_b(t_element **stack);
+int			unload_b(t_element **a, t_element **b);
 
 // presort b
 void		presort_b(t_element **a, t_element **b);
-void		final_set_b(t_element **stack);
-int			unload_b(t_element **a, t_element **b);
+int			find_b_index_v(t_element **b, int val);
+void		move(t_element **a, t_element **b, t_path path);
 
 // list utils
 t_element	*stacklast(t_element *stack);
