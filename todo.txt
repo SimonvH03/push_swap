@@ -4,3 +4,5 @@ Sort:
 Init:
 	- free stacks after malloc fail (or other init err)
 	- maybe use ft_split, do the duplicate check in an array instead of list
+
+implement vurk
