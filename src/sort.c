@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 16:05:34 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/28 17:23:27 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 21:21:55 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ int
 		t_element **b
 	)
 {
-	if (sorted(a, b) == EXIT_SUCCESS)// phase 1
+	if (sorted(a, b) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
 	if (init_sort(a, b) == EXIT_SUCCESS)
 		return (EXIT_SUCCESS);
-	while (stacksize(*a) >= 3)// phase 2
+	while (stacksize(*a) > 3)
 		presort_b(a, b);
-	sort_three(a);// phase 3
+	sort_three(a);
 	final_set_b(b);
 	unload_b(a, b);
 	return (sorted(a, b));

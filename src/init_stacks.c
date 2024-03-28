@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/28 16:50:42 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 21:46:49 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,23 @@ static int
 }
 
 static int
-	maxint_check(
+	arg_check(
 		const char *str
 	)
 {
 	const int	len = ft_strlen(str);
+	int			i;
 
-	if (*str != '-' && len > 10
-		|| len > 11)
+	i = 0;
+	if (str[0] == '-' && len > 1)
+		i++;
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (EXIT_FAILURE);
+		i++;
+	}
+	if ((*str != '-' && len > 10) || len > 11 || len == 0)
 		return (EXIT_FAILURE);
 	if (len == 11)
 	{
@@ -71,7 +80,7 @@ static t_element	*
 	new = (t_element *)malloc(sizeof(t_element));
 	if (new == NULL)
 		return (NULL);
-	if (maxint_check(arg) == EXIT_FAILURE)
+	if (arg_check(arg) == EXIT_FAILURE)
 		return (NULL);
 	new->v = ft_atoi(arg);
 	new->path = (t_path){0, 0};

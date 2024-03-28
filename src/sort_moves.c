@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/28 17:19:54 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 21:21:16 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,13 +103,15 @@ int
 		t_element **b
 	)
 {
+	while (stacklast(*a)->v > (*b)->v && (*a)->v < (*b)->v)
+		rra(a);
 	while (*b != NULL)
 	{
 		while (stacklast(*a)->v > (*b)->v && stacklast(*a)->v < (*a)->v)
-		{
 			rra(a);
-		}
 		pa(a, b);
 	}
+	while (stacklast(*a)->v < (*a)->v)
+		rra(a);
 	return (EXIT_SUCCESS);
 }
