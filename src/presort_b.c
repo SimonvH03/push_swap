@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 23:32:16 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 16:48:11 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,10 @@ void
 	int				v;
 	int				v_temp;
 
+	// int	i;
+	// const int	n = stacksize(*a);
+	// i = 0;
+
 	a_temp = *a;
 	a_optimal = a_temp;
 	v = total_path_length(a_temp->path);
@@ -117,6 +121,11 @@ void
 			v = v_temp;
 			a_optimal = a_temp;
 		}
+		// if (n > 60)
+		// {
+		// 	printf("[%d]	\e[3%dm%d\e[0m\n", i, v_temp / 10, v_temp);
+		// 	i++;
+		// }
 		a_temp = a_temp->next;
 	}
 	// printf("\e[33m(%d) %2d %2d  = %2d\e[0m\n", a_optimal->v, a_optimal->path.a, a_optimal->path.b, v);

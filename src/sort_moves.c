@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 23:33:39 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 16:49:30 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void
 
 	stackinfo(&info, b);
 	i = ft_min_abs(info.maxdex, info.maxdex - info.size);
-
 	while (i > 0)
 	{
 		rb(b);

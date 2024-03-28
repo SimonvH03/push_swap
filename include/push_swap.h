@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 23:34:53 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 16:53:15 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,12 @@ void		final_set_b(t_element **stack);
 int			unload_b(t_element **a, t_element **b);
 
 // list utils
-void		stackadd_front(t_element **stack, t_element *new);
-t_element	*stack_iteration(t_element *stack, int (*f)(t_element *));
-int			stacksize(t_element *stack);
 t_element	*stacklast(t_element *stack);
-int			indexstack(const t_element *haystack, const t_element *needle);
-t_element	*stackindex(t_element *stack, int index);
+void		stackadd_back(t_element **stack, t_element *new);
+int			stacksize(t_element *stack);
 t_element	*extreme_element(t_element **stack, short sign);
+// int			indexstack(const t_element *haystack, const t_element *needle);
+// t_element	*stackindex(t_element *stack, int index);
 
 // number utils
 int			ft_abs(int val);

@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/03/27 23:32:59 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 16:50:42 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ static int
 		}
 		temp = temp->next;
 	}
-	
 	return (EXIT_SUCCESS);
 }
 
@@ -98,7 +97,7 @@ static t_element	*
 		new = stacknew(argv[i]);
 		if (new == NULL)
 			return (NULL);
-		stackadd_front(&stack, new);
+		stackadd_back(&stack, new);
 		i++;
 	}
 	if (check_duplicates(&stack) == EXIT_FAILURE)

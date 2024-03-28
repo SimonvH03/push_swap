@@ -1,7 +1,6 @@
-Index once, update on rotation and pushing
+Sort:
+	- sort final 3, 4 or 5 on A
 
-free stacks after malloc fail (or other init err)
-
-maybe use ft_split, do the duplicate check in an array instead of list
-
-sort final 3, 4 or 5 on a
+Init:
+	- free stacks after malloc fail (or other init err)
+	- maybe use ft_split, do the duplicate check in an array instead of list

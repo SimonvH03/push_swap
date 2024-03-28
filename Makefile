@@ -10,13 +10,13 @@ SRCDIR		=	./src
 SRC			=	$(SRCDIR)/init_stacks.c \
 				$(SRCDIR)/list_utils.c \
 				$(SRCDIR)/main.c \
+				$(SRCDIR)/num_utils.c \
 				$(SRCDIR)/operations_r.c \
 				$(SRCDIR)/operations_rr.c \
 				$(SRCDIR)/operations_s_p.c \
 				$(SRCDIR)/operations.c \
 				$(SRCDIR)/presort_b.c \
 				$(SRCDIR)/sort_moves.c \
-				$(SRCDIR)/sort_utils.c \
 				$(SRCDIR)/sort.c \
 				$(SRCDIR)/stackinfo.c \
 				$(SRCDIR)/test_utils.c \
