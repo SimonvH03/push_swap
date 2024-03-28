@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/28 16:53:15 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 17:06:46 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 
-# define THEANSWER 42
+# define THEANSWER_TOLIFE_THEUNIVERSE_ANDEVERYTHING 42
 
 typedef struct s_path
 {

@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:05:45 by simon             #+#    #+#             */
-/*   Updated: 2024/03/28 16:49:30 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 17:19:54 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,10 @@ int
 {
 	while (*b != NULL)
 	{
+		while (stacklast(*a)->v > (*b)->v && stacklast(*a)->v < (*a)->v)
+		{
+			rra(a);
+		}
 		pa(a, b);
 	}
 	return (EXIT_SUCCESS);

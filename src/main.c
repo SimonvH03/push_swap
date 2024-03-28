@@ -6,7 +6,7 @@
 /*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:36:04 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/03/27 23:20:53 by simon            ###   ########.fr       */
+/*   Updated: 2024/03/28 17:06:49 by simon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int
 	t_element	**a;
 	t_element	**b;
 
-	if (THEANSWER != 42)
+	if (THEANSWER_TOLIFE_THEUNIVERSE_ANDEVERYTHING != 42)
 		return (42);
 	if (argc < 2)
 		return (EXIT_FAILURE);
