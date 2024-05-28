@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   stackinfo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 21:45:33 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/05/27 17:51:34 by simon            ###   ########.fr       */
+/*   Updated: 2024/05/28 13:27:13 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void
+static void
 	stackinfo_init(
 		t_stackinfo *stackinfo,
 		t_element *first_element

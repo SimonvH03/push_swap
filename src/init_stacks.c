@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stacks.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/05/27 17:51:34 by simon            ###   ########.fr       */
+/*   Updated: 2024/05/28 14:45:03 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,3 +134,23 @@ int
 	**stack_b = NULL;
 	return (EXIT_SUCCESS);
 }
+
+// int	indexstack(const t_element *haystack, const t_element *needle)
+// {
+// 	int	index;
+
+// 	index = 0;
+// 	while (haystack != NULL && haystack != needle)
+// 	{
+// 		index++;
+// 		haystack = haystack->next;
+// 	}
+// 	return (index);
+// }
+
+// t_element	*stackindex(t_element *stack, int index)
+// {
+// 	while (stack != NULL && index--)
+// 		stack = stack->next;
+// 	return (stack);
+// }

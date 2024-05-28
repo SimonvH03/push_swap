@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations_s_p.c                                   :+:      :+:    :+:   */
+/*   operations_p.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:44:16 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/05/27 17:51:34 by simon            ###   ########.fr       */
+/*   Updated: 2024/05/28 13:25:54 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void
-	sa(
-		t_element **a
+static void
+	push(
+		t_element **dest,
+		t_element **src
 	)
 {
-	ft_printf("sa\n");
-	swap(a);
-}
+	t_element	*temp;
 
-void
-	sb(
-		t_element **b
-	)
-{
-	ft_printf("sb\n");
-	swap(b);
-}
-
-void
-	ss(
-		t_element **a,
-		t_element **b
-	)
-{
-	ft_printf("ss\n");
-	swap(a);
-	swap(b);
+	if (stacksize(*src) < 1)
+		return ;
+	temp = *src;
+	*src = (*src)->next;
+	temp->next = *dest;
+	*dest = temp;
 }
 
 void

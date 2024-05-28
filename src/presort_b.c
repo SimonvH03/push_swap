@@ -3,84 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   presort_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: simon <simon@student.42.fr>                +#+  +:+       +#+        */
+/*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 21:24:49 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/05/27 17:51:34 by simon            ###   ########.fr       */
+/*   Updated: 2024/05/28 14:46:26 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-typedef void	(operation)(t_element **);
-typedef void	(double_operation)(t_element **, t_element **);
-
-typedef struct s_move
-{
-	operation			*rotate_a;
-	operation			*rotate_b;
-	double_operation	*rotate_both;
-}	t_move;
-
-void
-	move_init(
-		t_move *move,
-		int a_sign,
-		int b_sign
-	)
-{
-	if (a_sign > 0)
-	{
-		move->rotate_a = ra;
-		move->rotate_both = rr;
-	}
-	else
-	{
-		move->rotate_a = rra;
-		move->rotate_both = rrr;
-	}
-	if (b_sign > 0)
-		move->rotate_b = rb;
-	else
-		move->rotate_b = rrb;
-}
-
-// move executes the operations found by find_cheapest_insertion
-void
-	move(
-		t_element **a,
-		t_element **b,
-		t_path path
-	)
-{
-	const int			a_sign = ft_sign(path.a);
-	const int			b_sign = ft_sign(path.b);
-	t_move				move;
-
-	move_init(&move, a_sign, b_sign);
-	if (a_sign == b_sign)
-	{
-		while (path.a * a_sign > 0 && path.b * b_sign > 0)
-		{
-			move.rotate_both(a, b);
-			path.a -= a_sign;
-			path.b -= b_sign;
-		}
-	}
-	while (path.a * a_sign > 0)
-	{
-		move.rotate_a(a);
-		path.a -= a_sign;
-	}
-	while (path.b * b_sign > 0)
-	{
-		move.rotate_b(b);
-		path.b -= b_sign;
-	}
-	pb(a, b);
-}
-
-int
+static int
 	total_path_length(
 		t_path path
 	)
@@ -132,7 +64,7 @@ int
 // 	move(a, b, a_optimal->path);
 // }
 
-void
+static void
 	execute_cheapest_insertion(
 		t_element **a,
 		t_element **b
@@ -159,8 +91,7 @@ void
 	move(a, b, a_optimal->path);
 }
 
-
-int
+static int
 	find_b_index(
 		t_element **b,
 		int val

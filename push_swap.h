@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/05/28 13:18:46 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:43:51 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,16 @@ typedef struct s_stackinfo
 	int			size;
 }	t_stackinfo;
 
+typedef void	(operation)(t_element **);
+typedef void	(double_operation)(t_element **, t_element **);
+
+typedef struct s_move
+{
+	operation			*rotate_a;
+	operation			*rotate_b;
+	double_operation	*rotate_both;
+}	t_move;
+
 // init
 int			init_stacks(t_element ***a, t_element ***b, char **argv);
 
@@ -58,7 +68,7 @@ void		sort_three(t_element **stack);
 void		final_set_b(t_element **stack);
 int			unload_b(t_element **a, t_element **b);
 
-// presort b
+// algorithm
 void		presort_b(t_element **a, t_element **b);
 void		move(t_element **a, t_element **b, t_path path);
 
@@ -67,8 +77,6 @@ t_element	*stacklast(t_element *stack);
 void		stackadd_back(t_element **stack, t_element *new);
 int			stacksize(t_element *stack);
 t_element	*extreme_element(t_element **stack, short sign);
-// int			indexstack(const t_element *haystack, const t_element *needle);
-// t_element	*stackindex(t_element *stack, int index);
 
 // number utils
 int			ft_abs(int val);
@@ -78,17 +86,7 @@ int			ft_max(int a, int b);
 // utils
 void		free_both_stacks(t_element **a, t_element **b);
 
-// test utils
-void		print_stack(t_element **stack);
-void		print_both_stacks(t_element **a, t_element **b);
-
 /// OPERATIONS
-// operation logic
-void		swap(t_element **stack);
-void		push(t_element **dest, t_element **src);
-void		rotate(t_element **stack);
-void		reverse_rotate(t_element **stack);
-
 // operations_s_p.c
 void		sa(t_element **a);
 void		sb(t_element **b);
