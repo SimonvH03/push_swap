@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/05/28 13:13:03 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:18:46 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ int			unload_b(t_element **a, t_element **b);
 
 // presort b
 void		presort_b(t_element **a, t_element **b);
-int			find_b_index_v(t_element **b, int val);
 void		move(t_element **a, t_element **b, t_path path);
 
 // list utils
