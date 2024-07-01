@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/18 18:13:48 by svan-hoo          #+#    #+#             */
-/*   Updated: 2024/05/28 14:43:51 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/07/01 20:18:35 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_move
 }	t_move;
 
 // init
-int			init_stacks(t_element ***a, t_element ***b, char **argv);
+int			init_stacks(t_element **a, t_element **b, char **argv);
 
 // main
 int			sort_that_boie(t_element **a, t_element **b);
@@ -84,7 +84,7 @@ int			ft_min_abs(int a, int b);
 int			ft_max(int a, int b);
 
 // utils
-void		free_both_stacks(t_element **a, t_element **b);
+void		free_both_stacks(t_element *a, t_element *b);
 
 /// OPERATIONS
 // operations_s_p.c

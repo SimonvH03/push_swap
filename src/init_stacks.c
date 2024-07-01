@@ -6,7 +6,7 @@
 /*   By: svan-hoo <svan-hoo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 23:59:00 by simon             #+#    #+#             */
-/*   Updated: 2024/05/28 14:45:03 by svan-hoo         ###   ########.fr       */
+/*   Updated: 2024/07/01 20:15:40 by svan-hoo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,41 +116,15 @@ static t_element	*
 
 int
 	init_stacks(
-		t_element ***stack_a,
-		t_element ***stack_b,
+		t_element **stack_a,
+		t_element **stack_b,
 		char **argv
 	)
 {
-	*stack_a = (t_element **)malloc(sizeof(t_element *));
+	*stack_a = NULL;
+	*stack_a = create_stack_a(argv);
 	if (*stack_a == NULL)
 		return (EXIT_FAILURE);
-	**stack_a = NULL;
-	**stack_a = create_stack_a(argv);
-	if (**stack_a == NULL)
-		return (EXIT_FAILURE);
-	*stack_b = (t_element **)malloc(sizeof(t_element *));
-	if (*stack_b == NULL)
-		return (EXIT_FAILURE);
-	**stack_b = NULL;
+	*stack_b = NULL;
 	return (EXIT_SUCCESS);
 }
-
-// int	indexstack(const t_element *haystack, const t_element *needle)
-// {
-// 	int	index;
-
-// 	index = 0;
-// 	while (haystack != NULL && haystack != needle)
-// 	{
-// 		index++;
-// 		haystack = haystack->next;
-// 	}
-// 	return (index);
-// }
-
-// t_element	*stackindex(t_element *stack, int index)
-// {
-// 	while (stack != NULL && index--)
-// 		stack = stack->next;
-// 	return (stack);
-// }
